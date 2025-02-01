@@ -12,6 +12,7 @@
         <a href="index.html">Description</a>|
         <a href="index.html">Filmography</a>|
         <a href="index.html">Comment</a>|
+        <a href="seemore1.html">Book</a>
     </nav>
 
     <!-- Desctiption -->
@@ -146,9 +147,10 @@
 
 <!-- Trailer vedios -->
 <h2 align="center">Trailer</h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/B7wlaTfBVGc?si=anHqnqrW0WopcJQ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/F2RnxZnubCM?si=izQKlkY16VvAfTfv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/R99cc_tkkf0?si=sOSCStZ6dPwEkwId" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="460" height="315" src="https://www.youtube.com/embed/B7wlaTfBVGc?si=anHqnqrW0WopcJQ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="460" height="315" src="https://www.youtube.com/embed/F2RnxZnubCM?si=izQKlkY16VvAfTfv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="460" height="315" src="https://www.youtube.com/embed/R99cc_tkkf0?si=sOSCStZ6dPwEkwId" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 <br>
 <hr>
 
@@ -156,21 +158,29 @@
 
 <!-- comments forms -->
 <h2 align="center">Comment</h2>
-<div >
-  <form action="request.php" method="get" align="center">
-    <label for="name">Name:</label>
-    <input type="text" name="name" id="name">
-    <br><br>
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email">
-    <br><br>
-    <label for="comment">Comment</label>
-    <textarea name="comment" id="comment" rows="10" cols="40"></textarea>
-    <br><br>
-   <button type="submit">Add</button>
-   <br><br><br>
-  </form>  
-</div>
+<form action="request.php" method="get" align="center">
+  <table border="0" cellspacing="0" cellpadding="5" align="center">
+      <tr>
+          <td align="left"><label for="name">Name:</label></td>
+          <td align="left"><input type="text" name="name" id="name"></td>
+      </tr>
+      <tr>
+          <td align="left"><label for="email">Email:</label></td>
+          <td align="left"><input type="email" name="email" id="email"></td>
+      </tr>
+      <tr>
+          <td align="left" valign="middle"><label for="comment">Comment:</label></td>
+          <td align="left"><textarea name="comment" id="comment" rows="5" cols="20"></textarea></td>
+      </tr>
+  </table>
+
+  <br>
+  <button type="submit" align="center">Add</button>
+</form>
+
+
+    
+      
 <hr>
 
 <!-- footer elements -->
