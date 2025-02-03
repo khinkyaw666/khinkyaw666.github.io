@@ -7,6 +7,7 @@
 /* tag / element selector */
 h1{
     color: green;
+    text-align: center;
 }
 
 /* attribute selector */
@@ -35,5 +36,26 @@ a[title="google"]{
 
 .child > a{
     color:green;
-
 }
+
+/* pseudo selector */
+/* : link */
+a:link{
+    color: red;
+}
+a:hover{
+    color: green;
+    letter-spacing: 20px;
+}
+a:active{
+    color: yellow;
+}
+a:visited{
+    color:brown;
+}
+/* target */
+p:target{
+    color: red;
+    border: 2px solid black;
+}
+
