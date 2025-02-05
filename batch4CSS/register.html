@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="register.css">
 </head>
 <body id="mybody">
-    <h1 id="heading">Student Register</h1>
+    <h1 class="heading">Student Register</h1>
 
     <form action="" id="myForm">
         <div>
@@ -22,7 +22,7 @@
 
         <div>
             <label for="nrc">NRC</label>
-            <input type="text" placeholder="*******" id="nrc">
+            <input type="text" placeholder="*******" id="nrc" readonly value="123479">
         </div>
 
         <div>
@@ -47,8 +47,8 @@
         </div>
 
         <div>
-            <label for="name">Education</label>
-            <select name="" id="">
+            <label for="name" >Education</label>
+            <select name="" id="education">
                 <option value="">Please Choose One</option>
                 <option value="">First Year</option>
                 <option value="">Third Year</option>
@@ -68,7 +68,7 @@
                 <label for="Singing">Singing</label>
             </div>
             <div>
-                <input type="checkbox" id="Travelling">
+                <input type="checkbox" id="Travelling" disabled>
                 <label for="Travelling">Travelling</label>
             </div>
             <div>
@@ -102,10 +102,13 @@
             </ul>
         </fieldset>
 
+        <!-- empty tag -->
         <p></p>
 
 
-        <button>Register</button>
+        <button class="register_btn">Register</button>
+
+        <p>Thank fo your register!</p>
 
     </form>
     

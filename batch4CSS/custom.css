@@ -1,7 +1,9 @@
 /* universal selector */
-/* *{
-    color: red;
+ *{
+    /* color: red; */
     font-size: 20px;
+    margin: 0px;
+    padding: 0px;
 }
 
 /* tag / element selector */
@@ -59,3 +61,53 @@ p:target{
     border: 2px solid black;
 }
 
+/* border size style  color */
+.borderOne{
+    border: 20px dotted yellow;
+}
+
+.borderTwo{
+    border-top: 10px double  red;
+}
+/* most useful this upper design */
+
+.borderSize{
+    border-style: solid;
+    border-width: 1px 5px 10px 15px;
+    /* 2value=Top&Button/Left & Right */
+    /* 3value=Top/ L&R/Button */
+    /* 4value=Top/Right/Button/Left  clockwise*/
+}
+
+.borderStyle{
+    border-style: solid dashed double dotted;
+    border-color: red green;
+}
+
+/* margin */
+.margin{
+    border: 2px solid black;
+    /* margin:100px ; */
+    margin: 50px 20px;
+    /* margin-left: 200px; */
+
+}
+
+/* padding */
+.padding{
+    border: 1px solid red;
+    padding: 100px 10px 50px 20px;
+}
+
+/* inline */
+.inline{
+    border: 2px solid red;
+    width: 300px;
+    display: inline-block;
+}
+
+.block{
+    border: 2px solid black;
+    width: 300px;
+    display: inline-block;
+}
