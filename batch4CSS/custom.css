@@ -10,6 +10,7 @@
 h1{
     color: green;
     text-align: center;
+    margin: 50px;
 }
 
 /* attribute selector */
@@ -111,3 +112,57 @@ p:target{
     width: 300px;
     display: inline-block;
 }
+
+/* float left/right */
+.float_left img{
+    width: 40%;
+    float: left;
+}
+.clear{
+    clear: both;
+}
+.float_right img{
+    width: 40%;
+    float: right;
+}
+
+/* grid */
+.gridone div, .gridtwo div, .gridthree div, .gridfour div,.gridfive div,.gridsix div{
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+.gridone,.gridtwo,.gridthree,.gridfour,.gridfive,.gridsix{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    /* grid change to 3 auto columns */
+
+}
+
+.gridtwo{
+    grid-column-gap: 50px ;
+}
+
+.gridthree{
+    grid-row-gap:30px ;
+}
+
+.gridfour{
+    grid-gap:50px;
+    /* grid row & column 50px same */
+}
+.columnadd{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    /* column add count form 1,2,3 but add 2 columns */
+}
+
+.rowadd{
+    grid-column-start: 2;
+   /* to get in the mid,use column start  */
+    grid-row-start: 2;
+    grid-row-end: 4;
+    /* row counts from 2,3,4, but add 2 row actually  */
+}
+
