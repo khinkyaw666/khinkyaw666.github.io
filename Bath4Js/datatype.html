@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Type Lesson</title>
+</head>
+<body>
+    <h1>Data type Lessons</h1>
+    <script>
+        // let name = "Khin Khin Kyaw";
+        // let name = 'Khin kyaw';
+        let name = `Khin Kyaw`;
+        console.log( "Name is "+ name);
+        console.log("Name datatype is " + typeof(name));
+
+
+        // numberic datatype
+        let age = 29;
+        console.log( "Age is "+ age);
+        console.log("Age datatype is " + typeof(age));
+
+
+        // boolen datatype
+        let single = true;
+        console.log( "Single is "+ single);
+        console.log("Single datatype is " + typeof(single));
+
+
+        //underfined
+        let myBaby;
+        console.log(myBaby);
+
+
+        //null
+        let son = null;
+        console.log(null);
+        console.log(typeof(null));
+
+
+        //array
+        let arr = new Array('a','b','c','d',1,2,3);
+        console.log(arr);
+        console.log(arr[2]);
+
+
+        let studentList = ['Maung Maung', 'Aung Aung', 'Hla Hla',' Htun Htun','Mya Mya','Kyaw Kyaw'];
+        console.log(studentList);
+        console.log(studentList[3]);
+
+        //Arrays in array<nested array>
+        let employeeList = ['Ko Kyaw' , 'Daw Hla' , 'Daw Mya',['U Aung' , 'Daw Thein',],'Ko Aung'];
+        console.log(employeeList);
+        console.log(employeeList[3][0]);
+
+
+        //objects
+        let carInfo = {
+            carName:'Honda Fix' ,
+            color : ['White' ,"Black"],
+            Number : '8M-2344545',
+            Modal : '54532'
+        };
+        console.log(carInfo);
+        console.log(carInfo.color[0]);
+        console.log(carInfo.carName);
+
+    </script>
+    
+</body>
+</html>
