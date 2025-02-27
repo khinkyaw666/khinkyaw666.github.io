@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+</head>
+<body>
+    <script>
+         for(let h = 4; h >= 0; h--){
+        for(let j = 0; j <= h; j++){
+            document.write("*");
+
+        }
+        document.write("<br>");
+       
+       }
+        let num = parseInt(prompt("Enter a number:"));
+        let i = 1;
+
+        document.write(`<h2>Multiplication Table for ${num}</h2>`);
+        
+        while (i <= 12) {
+            document.write(`${num} x ${i} = ${num * i} <br>`);
+            i++;
+        }
+    </script>
+</body>
+</html>
