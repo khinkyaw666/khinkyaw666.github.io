@@ -1,0 +1,175 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: rgba(0, 0, 0, 0.662);
+    color: white;
+    
+}
+
+/* Navbar */
+.navbar{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+    align-items: center;
+    background-color:rgba(0, 0, 0, 0.662);
+    border-top: #005f75 solid 20px ;
+    border-radius: 5px;
+    padding: 0px 20px 0px 20px;
+
+
+}
+.brand{
+    display: flex;
+    align-items: center;
+}
+
+.brand img{
+    width: 60px;
+    height: 60px;
+    margin: 0 15px 0 15px;
+}
+
+.brand h2{
+    letter-spacing: 3px;
+}
+
+.nav-menu ul{
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    justify-content: end;
+    gap: 10px;
+}
+
+.nav-menu ul li{
+    list-style-type: none ;
+}
+
+.nav-menu ul li a{
+    text-decoration: none;
+    color: white;
+    padding: 15px ;
+    font-size: 20px;
+
+}
+
+.title-about{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    margin: 35px 70px;
+    
+}
+.title-about h1{
+    font-weight: bold;
+    font-size: 3em;
+}
+
+.title1{
+    background-color: rgba(0,0,0,0.5);
+    padding: 50px ;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+.header-container2{
+    background-image: url(images/yourname.avif);
+    position: relative;
+    width: 100%;
+    height: 800px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+    color: white;
+   padding-top: 70px;
+   
+   
+    
+}
+
+.header-container,.header-container1{
+    position: relative;
+    width: 100%;
+    height: 800px;
+    background-color: rgb(55, 48, 38);
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(0,0,0,0.5);
+    background-blend-mode: multiply;
+    /* For text */
+    
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  
+    
+}
+
+
+
+.movie-container{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    
+    width: 90%;
+    height: 250px;
+    gap: 30px;
+    padding-bottom: 150px ;
+    align-items: center;
+    
+    
+    
+    
+}
+.movie-item{
+   
+    border-radius: 10px;
+      
+    
+}
+
+.item-img{
+    width: 90%;
+    height: 250px;
+        
+}
+
+    
+
+.item-name{
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    align-items: center;
+
+}
+
+.header-container1{
+    
+    background-image: url(images/pexels-moose-photos-170195-1037999.jpg);
+    
+   
+    
+}
+
+
+
+
+      
+    
+
+
+
+      
+    
+
+
+
+
+

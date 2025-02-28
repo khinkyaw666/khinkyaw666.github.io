@@ -1,0 +1,89 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+   
+    background-color: #6fc9fa;
+    color: #fff;          /* Set default text color to white or a light gray */
+    margin: 0;             /* Remove default body margins */
+    padding: 15px 0;
+    
+
+}
+.navbar{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
+  align-items: center;
+
+
+}
+
+.nav-menu ul{
+  display: grid;
+  grid-template-columns: repeat(4,auto);
+  justify-content: end;
+  gap: 10px;
+}
+
+.nav-menu ul li{
+  list-style-type: none ;
+}
+
+.nav-menu ul li a{
+  text-decoration: none;
+  color: #cda454;
+  padding: 15px ;
+  font-size: 20px;
+
+}
+
+
+.movie-grid-container {
+  position: relative;
+  width: 100%;
+  height: 1000px;
+  background-image: url(images/pexels-moose-photos-170195-1037999.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: rgba(0,0,0,0);
+  background-blend-mode: multiply;
+  /* For text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:50px 50px;
+    
+  }
+  .our-movie{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    column-gap: 20px;
+    margin: 0 70px;
+    gap: 20px;
+}
+
+  .movie-item{
+    
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    width: 80%;
+    height: 250px;
+   
+  }
+  
+  
+ 
+  
+
+
+  
+  
+  
+    
+  
