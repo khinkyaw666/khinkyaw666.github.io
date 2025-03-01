@@ -56,7 +56,19 @@ nav ul li a {
     border-radius: 50%;
 }
 
-footer {
+/* footer */
+.footer{
+    background-color: black;
+    padding: 50px 0;
     text-align: center;
-    background-color: #1c1c1c;
+}
+.footer-title{
+    font-weight: bold;
+
+}
+.dev{
+    color: #cda45e;
+    text-decoration: none;
+    font-weight: bold;
+
 }

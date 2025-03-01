@@ -96,5 +96,20 @@ footer {
     transform: scale(1.05);
 }
 
+/* footer */
+.footer{
+    background-color: black;
+    padding: 50px 0;
+    text-align: center;
+}
+.footer-title{
+    font-weight: bold;
 
+}
+.dev{
+    color: #cda45e;
+    text-decoration: none;
+    font-weight: bold;
+
+}
 
