@@ -15,8 +15,8 @@ body{
     grid-template-columns: 1fr 1fr;
     padding: 10px;
     align-items: center;
-    background-color:rgba(0, 0, 0, 0.662);
-    border-top: #005f75 solid 20px ;
+    background-color:black;
+    border-top: #0d402be7 solid 20px ;
     border-radius: 5px;
     padding: 0px 20px 0px 20px;
 
@@ -50,7 +50,7 @@ body{
 
 .nav-menu ul li a{
     text-decoration: none;
-    color: rgb(231, 215, 246);
+    color: white;
     padding: 15px ;
     font-size: 20px;
 
@@ -72,7 +72,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: left;
-    color: rgb(231, 215, 246);
+    color: white;
         
 }
 
@@ -81,7 +81,7 @@ body{
 }
 .home-title,.home-title1{
     font-size: 2.3em;
-    color: rgb(231, 215, 246);
+    color: white;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
 }
@@ -90,7 +90,7 @@ body{
 .text-about{
     margin: 30px 0;
     font-size: 1.3em;
-    color: rgb(231, 215, 246);
+    color: white;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
 }
@@ -109,7 +109,9 @@ body{
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-color: rgba(0,0,0,0.5);   
+    background-color: rgba(0,0,0,0.5);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); /* Shadow effect */ 
+    transition: background-image 1s ease-in-out;  
     padding: 50px 0px;
         
     
@@ -174,7 +176,7 @@ body{
     background-color: black;
     padding: 50px 0;
     text-align: center;
-    border: #005f75 solid  25px ;
+    border: #0d402be7 solid  20px ;
     border-left: 0px;
     border-right: 0px;
     
@@ -184,7 +186,7 @@ body{
 
 }
 .dev{
-    color: rgb(158, 113, 200);
+    color: rgb(14, 107, 22);
     text-decoration: none;
     font-weight: bold;
 

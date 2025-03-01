@@ -22,31 +22,7 @@
             border-radius: 20px; /* Rounded corners */
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); /* Shadow effect */
             transition: background-image 1s ease-in-out;
-
-            .slideshow-container {
-            width: 350px;
-            height: 500px;
-            overflow: hidden;
-            position: relative;
-            
         }
-        .slideshow img {
-            display: flex;
-            justify-content: center;
-            align-items: start;
-            width: 100%;
-            height: 500px;
-            position: absolute;
-            opacity: 0;
-            transition: opacity 3.5s;
-        }
-        .slideshow img.active {
-            opacity: 1;
-        }
-    }
-    
-    
-    
     </style>
 </head>
 <!-- home page -->
@@ -54,7 +30,7 @@
     <nav class="navbar">
         <div class="brand">
             <img src="images/Untitled design.png" alt="">
-            <h2>Mozza</h2>
+            <h2>Mozaza</h2>
         </div>
         <div class="nav-menu">
             <ul>
@@ -80,58 +56,64 @@
     
     
 
-<div class="slider" style="background-color: rgba(12, 87, 66, 0.41); margin-top: 2px;">
+<div class="slider">
        
         <div class="home">
             <div class="home-about">
-                <h1 class="home-title" >Welcome to MOZZA!</h1><br><br>
-                <h3 class="text-about">What do you mean by Justin Bieber</h3><br><br>
-                   
-                <p>What do you mean? <br><br> Oh, oh  When you nod your head <br><br>yes But you wanna say <br><br> no What do you mean? <br><br> Hey-ey When you don't want me to move
-                    <br><br>
-                    But you tell me to go <br><br>
-                    
-                    What do you mean? <br><br>
-                    
-                    Oh, what do you mean? <br><br>
-                    
-                    Said you're running out of time, what do you mean? <br><br>
-                    
-                    Oh, oh, oh, what do you mean?<br><br>
-                    
-                    Better make up your mind<br><br>
-                    
-                    What do you mean?
-                        
+                <h1 class="home-title">Welcome to Our Movie Streaming Site</h1>
+                <br><br><br><br>
+                <h2>Watch News Movies and Series</h2>
+                <p class="text-about">
+                   <h3> Casual & Fun:</h3>
+                    <p>🎬 Unlimited Movies, Anytime, Anywhere! 🍿
+                    Sit back, relax, and stream your favorite movies in HD. No ads, just pure entertainment!
+                    </p><br>
+                    <h3>Professional & Sleek:</h3>
+                    <p>
+                        📽 Your Favorite Movies, One Click Away
+                        Enjoy a vast collection of blockbuster hits and hidden gems. Watch anywhere, anytime.
+                    </p><br>
+                    <h3>Minimalist & Modern:</h3>
+                    <p>
+                        🎥 Stream. Enjoy. Repeat.A world of movies at your fingertips. Start watching now.
+                    </p><br>
+                    <h3>🎥 Stream. Enjoy. Repeat.</h3>
+                    <p>
+                        A world of movies at your fingertips. Start watching now!
+                    </p>
                 </p><br><br>
                 
                
             </div>
-            <div class="slideshow-container">
-                <div class="slideshow">
-                    <img src="images/70e7af374bfe6e71028fbb39a98a9d46.jpg" class="active">
-                    <img src="images/78a1648629ea4f587aabacbf1bc3a2bc.jpg">
-                    <img src="images/7f2ba164189e19101f7ae3024c169cec.jpg">
-                </div>
-            </div>
+            <img src="images/special.jpg" alt="" class="special-img">
         </div>
     
     <!-- home page         -->
 </div> 
+
+
 <script>
-    let slides = document.querySelectorAll(".slideshow img");
+    const images = [
+        "images/yourname.avif",
+        "images/l4020231205204329.webp",
+        "images/g_disney_elemental_exhibitorposters_793_02_84240e15.jpeg"
+    ];
+
     let index = 0;
-    
-    function nextSlide() {
-        slides[index].classList.remove("active");
-        index = (index + 1) % slides.length;
-        slides[index].classList.add("active");
+    const slider = document.querySelector(".slider");
+
+    function changeBackground() {
+        slider.style.backgroundImage = `url(${images[index]})`;
+        index = (index + 1) % images.length;
     }
-    
-    setInterval(nextSlide, 3000);
+
+    // Set initial background
+    changeBackground();
+
+    setInterval(changeBackground, 3000);
+
+    // javascript
 </script>
-
-
 <section class="header-container">
     <h3 class="home-title1">All Movies</h3>
     <div class="movie-container">
@@ -198,11 +180,80 @@
         </div>
        
     </div>
+
     
     
         
         
 </section>
+<section>
+<header class="header-container1" style="background-image: url(images/d837f95ea4ff69abdfcbe0d45ea0ceb7.jpg);">
+    <h2 class="home-title1">Animation Movies</h2>
+    <div class="movie-container1">
+        <div class="movie-item1">
+            <img src="images/animation/1.png" alt="" class="item-img">
+            
+        </div>
+        <div class="movie-item">
+            <img src="images/animation/2.png" alt="" class="item-img">
+            
+        </div>
+        <div class="movie-item">
+            <img src="images/animation/3.png" alt="" class="item-img">
+            
+        </div>
+        <div class="movie-item">
+            <img src="images/animation/4.png" alt="" class="item-img">
+            
+        </div>
+        <div class="movie-item">
+            <img src="images/animation/5.png" alt="" class="item-img">
+           
+        </div>
+        <div class="movie-item1">
+            <img src="images/animation/6.png" alt="" class="item-img">
+            
+        </div>
+        <div class="movie-item">
+            <img src="images/animation/7.png" alt="" class="item-img">
+            
+        </div>
+        <div class="movie-item">
+            <img src="images/animation/8.png" alt="" class="item-img">
+            
+        </div>
+        <div class="movie-item">
+            <img src="images/animation/15.png" alt="" class="item-img">
+            
+        </div>
+        <div class="movie-item">
+            <img src="images/animation/9.png" alt="" class="item-img">
+           
+        </div>
+        <div class="movie-item1">
+            <img src="images/animation/10.png" alt="" class="item-img">
+            
+        </div>
+        <div class="movie-item">
+            <img src="images/animation/11.png" alt="" class="item-img">
+            
+        </div>
+        <div class="movie-item">
+            <img src="images/animation/12.png" alt="" class="item-img">
+            
+        </div>
+        <div class="movie-item">
+            <img src="images/animation/13.png" alt="" class="item-img">
+            
+        </div>
+        <div class="movie-item">
+            <img src="images/animation/14.png" alt="" class="item-img">
+           
+        </div>
+        
+    </div>
+</section>
+    
 <!-- Footer -->
 <footer class="footer">
     <p>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="home1.css">
 </head>
 <body>
     <!DOCTYPE html>
@@ -17,20 +18,20 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212;
+            background-color: white;
             color: white;
         }
         .container {
             width: 50%;
             margin: 50px auto;
             padding: 30px;
-            background: linear-gradient(135deg, #1e1e1e, #292929);
+            background: linear-gradient(135deg, #2c302b43, #535050);
             border-radius: 12px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(25, 23, 23, 0.834);
         }
         h2 {
             text-align: center;
-            color: #ffcc00;
+            color: white;
             font-size: 28px;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -53,14 +54,14 @@
             transition: 0.3s;
         }
         .contact-form input:focus, .contact-form textarea:focus {
-            background: #333;
+            background: rgba(49, 77, 65, 0.662);
             outline: none;
         }
         .contact-form button {
             width: 100%;
             padding: 12px;
-            background: #ffcc00;
-            color: black;
+            background: #222;
+            color: white;
             border: none;
             font-size: 18px;
             font-weight: bold;
@@ -69,12 +70,35 @@
             transition: 0.3s;
         }
         .contact-form button:hover {
-            background: #e6b800;
+            background: #48a281;
             transform: scale(1.05);
         }
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="brand">
+            <img src="images/Untitled design.png" alt="">
+            <h2>Mozza</h2>
+        </div>
+        <div class="nav-menu">
+            <ul>
+                <li>
+                    <a href="">Home</a>
+                </li>
+                <li>
+                    <a href="">Menu</a>
+                </li>
+                <li>
+                    <a href="">About</a>
+                </li>
+                <li>
+                    <a href="index1.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+   </nav>
+   <!-- navigation var -->
     <div class="container">
         <h2>Contact Us</h2>
         <form class="contact-form">
@@ -90,6 +114,18 @@
             <button type="submit">Send Message</button>
         </form>
     </div>
+
+    <!-- Footer -->
+<footer class="footer">
+    <p>
+        &copy;Copyright
+        <span class="footer-title">Kyaw Cafe`</span>
+        All Right Reserved
+    </p>
+    <p>Design By <a href="https://khinkyaw666.github.io"
+        class="dev" target="_blank">Khin</a></p>
+</footer>
+
 </body>
 </html>
 
