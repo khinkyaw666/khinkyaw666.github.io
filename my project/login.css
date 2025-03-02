@@ -1,11 +1,22 @@
 /* Navbar */
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: rgba(0, 0, 0, 0.662);
+    color: whitesmoke;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+}
 .navbar{
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 10px;
     align-items: center;
     background-color:black;
-    border-top: #0d402be7 solid 20px ;
+    border-top: rgba(139, 180, 185, 0.856) solid 20px ;
     border-radius: 5px;
     padding: 0px 20px 0px 20px;
     color: white;
@@ -50,7 +61,7 @@
     background-color: black;
     padding: 50px 0;
     text-align: center;
-    border: #0d402be7 solid  20px ;
+    border: rgba(139, 180, 185, 0.856) solid  20px ;
     border-left: 0px;
     border-right: 0px;
     color: white;
@@ -105,7 +116,7 @@
   .login-container button {
     width: 100%;
     padding: 10px;
-    background-color: #2b3de1;
+    background-color: rgba(139, 180, 185, 0.856);
     color: rgba(255, 255, 255, 0.973);
     border: none;
     border-radius: 5px;
