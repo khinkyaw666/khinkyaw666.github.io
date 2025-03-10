@@ -4,14 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Current Time Display</title>
+    <style>
+        body {
+            display: grid;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            background-color: #1e1e2e;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+        }
+        .clock {
+            font-size: 50px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff0080, #ff8c00);
+            padding: 20px 40px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(255, 140, 0, 0.7);
+        }
+        
+    </style>
 </head>
-<body style="background-color: rgb(222, 231, 171);">
-    <h1 style="color: green;">Current Time</h1>
-    <p id="time" style="color: green;"></p>
+<body>
+    <h1 id="title">Current Time</h1>
+    <p id="datetime"></p>
+    
+    <p id="time" class="clock"></p>
 
     <script>
+         
         function updateTime() {
-            let now = new Date();
+            let now = new Date();          
+           
+
             let hours = now.getHours();
             let minutes = now.getMinutes();
             let seconds = now.getSeconds();
