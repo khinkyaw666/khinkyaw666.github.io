@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation lesson</title>
+    <style>
+        #panel{
+            max-width: 150px;
+            padding: 50px 0;
+            background-color: green;
+            color: black;
+            text-align: center;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <p id="panel">Animation</p>
+    <button id="start">Start</button>
+
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#start').click(function () {
+                $("#panel").animate({ left: '350px' }, 1000)  // Move right
+                 .animate({ top: '150px' }, 1000)    // Move down
+                 .animate({ left: '0px' }, 1000)     // Move left
+                 .animate({ top: '0px' }, 1000);     // Move up
+                                             
+            })
+        })
+    </script>
+</body>
+</html>
