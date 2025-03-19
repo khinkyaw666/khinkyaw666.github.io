@@ -5,13 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animation lesson</title>
     <style>
+        body{
+            background-color: rgb(230, 210, 135);
+        }
         #panel{
             max-width: 150px;
             padding: 50px 0;
-            background-color: green;
+            border-radius: 6px;
+            background-color: rgb(144, 225, 229);
             color: black;
             text-align: center;
             position: relative;
+        }
+        #start{
+            background-color: rgb(144, 225, 229);
         }
     </style>
 </head>
@@ -23,10 +30,10 @@
     <script>
         $(document).ready(function(){
             $('#start').click(function () {
-                $("#panel").animate({ left: '350px' }, 1000)  // Move right
-                 .animate({ top: '150px' }, 1000)    // Move down
-                 .animate({ left: '0px' }, 1000)     // Move left
-                 .animate({ top: '0px' }, 1000);     // Move up
+                $("#panel").animate({ left: '350px' }, 3000)  // Move right
+                 .animate({ top: '350px' }, 3000)    // Move down
+                 .animate({ left: '0px' }, 3000)     // Move left
+                 .animate({ top: '0px' }, 3000);     // Move up
                                              
             })
         })
