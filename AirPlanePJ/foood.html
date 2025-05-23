@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🍱 In-Flight Food Selection</title>
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #f1f5f9;
+    }
+    .card {
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card img {
+      height: 150px;
+      object-fit: cover;
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+    }
+    .total-box {
+      background: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container py-5">
+  <h2 class="text-center mb-4">🍱 Choose Your In-Flight Meal</h2>
+
+  <div class="row" id="foodItems">
+    <!-- Food Cards -->
+    <div class="col-md-4 mb-4" data-price="12">
+      <div class="card">
+        <img src="https://source.unsplash.com/400x150/?chicken,rice" class="card-img-top" alt="Chicken Rice">
+        <div class="card-body">
+          <h5 class="card-title">Chicken Rice</h5>
+          <p class="card-text">$12</p>
+          <input type="checkbox" class="form-check-input food-checkbox"> Select
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4" data-price="10">
+      <div class="card">
+        <img src="https://source.unsplash.com/400x150/?vegetarian,meal" class="card-img-top" alt="Veg Meal">
+        <div class="card-body">
+          <h5 class="card-title">Vegetarian Meal</h5>
+          <p class="card-text">$10</p>
+          <input type="checkbox" class="form-check-input food_checkbox"> Select
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4" data-price="8">
+      <div class="card">
+        <img src="https://source.unsplash.com/400x150/?noodles" class="card-img-top" alt="Noodles">
+        <div class="card-body">
+          <h5 class="card-title">Noodles</h5>
+          <p class="card-text">$8</p>
+          <input type="checkbox" class="form-check-input food_checkbox"> Select
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4" data-price="6">
+      <div class="card">
+        <img src="https://source.unsplash.com/400x150/?salad" class="card-img-top" alt="Salad">
+        <div class="card-body">
+          <h5 class="card-title">Fresh Salad</h5>
+          <p class="card-text">$6</p>
+          <input type="checkbox" class="form-check-input food_checkbox"> Select
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4" data-price="4">
+      <div class="card">
+        <img src="https://source.unsplash.com/400x150/?dessert" class="card-img-top" alt="Dessert">
+        <div class="card-body">
+          <h5 class="card-title">Dessert</h5>
+          <p class="card-text">$4</p>
+          <input type="checkbox" class="form-check-input food_checkbox"> Select
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Total -->
+  <div class="mt-4 total-box">
+    <h5>Total Price: <span id="totalPrice">$0</span></h5>
+    <button class="btn btn-success mt-2" id="confirmBtn">Confirm Selection</button>
+  </div>
+</div>
+<script>
+  $(document).ready(function () {
+    function updateTotal() {
+      let total = 0;
+      $('.food_checkbox:checked').each(function () {
+        let price = parseFloat($(this).closest('.col-md-4').data('price'));
+        total += price;
+      });
+      $('#totalPrice').fadeOut(150, function () {
+        $(this).text('$' + total).fadeIn(150);
+      });
+    }
+
+    $('.food_checkbox').change(updateTotal);
+
+    $('#confirmBtn').click(function () {
+      const items = [];
+      $('.food_checkbox:checked').each(function () {
+        let name = $(this).closest('.card-body').find('.card-title').text();
+        items.push(name);
+      });
+
+      if (items.length === 0) {
+        alert("🍴 Please select at least one item.");
+      } else {
+        alert("✅ Selected items: \n" + items.join(", "));
+      }
+    });
+  });
+</script>
+
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+</html>

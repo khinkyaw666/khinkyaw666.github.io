@@ -1,0 +1,21 @@
+flight-booking-site/
+│
+├── index.html
+├── css/
+│   └── style.css
+├── js/
+│   ├── script.js
+│   └── jquery.min.js (download from jquery.com)
+├── bootstrap/
+│   ├── bootstrap.min.css
+│   └── bootstrap.bundle.min.js
+└── assets/
+    └── images/
+
+
+
+
+
+navigation
+Hero home page ----->flight, car,stay 
+Explore destination---->Country,City

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AirFlight Booking - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background: #f8fafc; }
+    .hero {
+      background: linear-gradient(90deg, #0d6efd 60%, #0dcaf0 100%);
+      color: white;
+      padding: 3rem 0;
+      text-align: center;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">✈️ AirFlight</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Manage Booking</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Support</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="container mt-4">
+    <div class="hero shadow">
+      <h1 class="display-4 mb-3">Book Your Next Flight</h1>
+      <p class="lead mb-4">Fast, easy, and affordable airline ticket booking.</p>
+      <a href="#search" class="btn btn-light btn-lg shadow-sm">Get Started</a>
+    </div>
+  </div>
+
+  <!-- Flight Search Form -->
+  <div class="container my-5" id="search">
+    <div class="card shadow">
+      <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Search Flights</h5>
+      </div>
+      <div class="card-body">
+        <form id="flight-search-form" class="row g-3">
+          <div class="col-md-3">
+            <label class="form-label">From</label>
+            <input type="text" class="form-control" id="from" placeholder="Departure City" required>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">To</label>
+            <input type="text" class="form-control" id="to" placeholder="Arrival City" required>
+          </div>
+          <div class="col-md-2">
+            <label class="form-label">Date</label>
+            <input type="date" class="form-control" id="date" required>
+          </div>
+          <div class="col-md-2">
+            <label class="form-label">Passengers</label>
+            <input type="number" class="form-control" id="passengers" min="1" value="1" required>
+          </div>
+          <div class="col-md-2 d-grid">
+            <label class="form-label invisible">Search</label>
+            <button type="submit" class="btn btn-primary">Search Flights</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Example Results Section (Real-time with JS) -->
+  <div class="container" id="results" style="display:none;">
+    <h2 class="mb-4">Available Flights</h2>
+    <div class="row" id="results-list"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white text-center py-3 mt-5">
+    &copy; 2025 AirFlight. All rights reserved.
+  </footer>
+
+  <script>
+    // Sample flight data (in real project, fetch from API)
+    const flights = [
+      { flight: "AF101", from: "Yangon", to: "Bangkok", date: "2025-05-25", time: "09:00-11:00", price: 120 },
+      { flight: "AF102", from: "Yangon", to: "Singapore", date: "2025-05-25", time: "13:00-16:00", price: 180 },
+      { flight: "AF103", from: "Yangon", to: "Bangkok", date: "2025-05-25", time: "15:00-17:00", price: 110 }
+    ];
+
+    document.getElementById('flight-search-form').onsubmit = function(e) {
+      e.preventDefault();
+      const from = document.getElementById('from').value.trim().toLowerCase();
+      const to = document.getElementById('to').value.trim().toLowerCase();
+      const date = document.getElementById('date').value;
+      const passengers = parseInt(document.getElementById('passengers').value, 10);
+      const resultList = document.getElementById('results-list');
+      resultList.innerHTML = '';
+      // Simple filter (case-insensitive)
+      const filtered = flights.filter(f =>
+        f.from.toLowerCase() === from && f.to.toLowerCase() === to && f.date === date
+      );
+      if (filtered.length === 0) {
+        resultList.innerHTML = '<div class="col"><div class="alert alert-warning">No flights found for your search.</div></div>';
+      } else {
+        filtered.forEach(f => {
+          const total = f.price * passengers;
+          resultList.innerHTML += `
+            <div class="col-md-4">
+              <div class="card mb-3 shadow">
+                <div class="card-body">
+                  <h5 class="card-title">${f.flight}</h5>
+                  <p class="card-text">${f.from} → ${f.to} <br> ${f.date} | ${f.time}</p>
+                  <p class="card-text"><strong>Price:</strong> $${f.price} x ${passengers} = <span class="text-primary fw-bold">$${total}</span></p>
+                  <button class="btn btn-success w-100" onclick="startBooking('${f.flight}', '${f.from}', '${f.to}', '${f.date}', '${f.time}', ${f.price}, ${passengers}, ${total})">
+                    Book Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+      }
+      document.getElementById('results').style.display = 'block';
+      window.scrollTo({ top: document.getElementById('results').offsetTop - 30, behavior: 'smooth' });
+    };
+
+    function startBooking(flight, from, to, date, time, price, passengers, total) {
+      // Save to localStorage or pass via URL in a real app
+      localStorage.setItem('booking', JSON.stringify({
+        flight, from, to, date, time, price, passengers, total
+      }));
+      window.location.href = "passenger.html";
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

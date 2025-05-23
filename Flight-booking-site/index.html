@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flight Booking</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="fontawesome/css/all.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-light bg-white shadow-sm px-4 py-2">
+    <a class="navbar-brand text-orange fs-4" href="#">
+      <span>K</span><span>A</span><span>Y</span><span>A</span><span>K</span>
+    </a>
+    <div class="ms-auto">
+      <button class="btn btn-outline-dark">
+        <i class="fas fa-user"></i> Sign in
+      </button>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <div class="container mt-5">
+    <h1 class="fw-bold text-center mb-4">Compare flight deals from 100s of sites.</h1>
+
+    <!-- Navigation Tabs -->
+    <div class="d-flex justify-content-center gap-3 flex-wrap mb-4">
+      <button class="btn tab-btn active"><i class="fas fa-plane"></i> Flights</button>
+      <button class="btn tab-btn"><i class="fas fa-bed"></i> Stays</button>
+      <button class="btn tab-btn"><i class="fas fa-car"></i> Cars</button>
+      <button class="btn tab-btn"><i class="fas fa-suitcase"></i> Packages</button>
+      <button class="btn tab-btn"><i class="fas fa-robot"></i> KAYAK.ai</button>
+    </div>
+
+    <!-- Search Box -->
+    <div class="search-box bg-white shadow p-4 rounded">
+      <form id="searchForm" class="row g-3 align-items-end">
+        <div class="col-md-3">
+          <label class="form-label">From</label>
+          <input type="text" class="form-control" placeholder="Los Angeles (LAX)">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">To</label>
+          <input type="text" class="form-control" placeholder="Where to?">
+        </div>
+        <div class="col-md-2">
+          <label class="form-label">Departure</label>
+          <input type="date" class="form-control">
+        </div>
+        <div class="col-md-2">
+          <label class="form-label">Return</label>
+          <input type="date" class="form-control">
+        </div>
+        <div class="col-md-1">
+          <label class="form-label">Travelers</label>
+          <select class="form-select">
+            <option>1 Adult</option>
+            <option>2 Adults</option>
+            <option>3 Adults</option>
+          </select>
+        </div>
+        <div class="col-md-1 d-grid">
+          <button type="submit" class="btn btn-orange"><i class="fas fa-search"></i></button>
+        </div>
+      </form>
+    </div>
+    <!-- end index page -->
+
+    <!-- start explore destination -->
+     <!-- Destination Search Accordion -->
+  <section class="destinations mt-5 container">
+    <h2 class="mb-4 fw-semibold">Search cheap flights by destination</h2>
+    <div class="accordion" id="accordionDest">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUS">
+            United States
+          </button>
+        </h2>
+        <div id="collapseUS" class="accordion-collapse collapse show" data-bs-parent="#accordionDest">
+          <div class="accordion-body">
+            <ul class="row list-unstyled g-2">
+              <li class="col-md-3"><a href="#">Flights to New York</a></li>
+              <li class="col-md-3"><a href="#">Flights to Miami</a></li>
+              <li class="col-md-3"><a href="#">Flights to LA</a></li>
+              <li class="col-md-3"><a href="#">Flights to Chicago</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- More accordion items can go here -->
+    </div>
+  </section>
+
+  <!-- Popular Destinations -->
+  
+<!-- Hero section -->
+     
+<div class="container py-5">
+  <h2 class="mb-5 text-center fw-bold">🌍 Explore Popular Countries</h2>
+  <div class="row g-4">
+
+    <!-- Card 1 -->
+    <div class="col-md-4 fade-in">
+      <div class="card">
+        <img src="images/thailand.jpg" class="card-img-top" alt="Thailand">
+        <div class="card-body">
+          <h5 class="card-title">Thailand</h5>
+          <p class="card-text">Land of Smiles with stunning beaches and spicy street food.</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="price-tag">$299</span>
+            <a href="#" class="btn btn-outline-primary btn-sm">Explore</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-md-4 fade-in">
+      <div class="card">
+        <img src="images/japan.jpg" class="card-img-top" alt="Japan">
+        <div class="card-body">
+          <h5 class="card-title">Japan</h5>
+          <p class="card-text">Experience cherry blossoms, sushi and samurai heritage.</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="price-tag">$499</span>
+            <a href="#" class="btn btn-outline-primary btn-sm">Explore</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-4 fade-in">
+      <div class="card">
+        <img src="images/france.jpg" class="card-img-top" alt="France">
+        <div class="card-body">
+          <h5 class="card-title">France</h5>
+          <p class="card-text">Romantic Eiffel Tower views and fine wine & cheese trails.</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="price-tag">$399</span>
+            <a href="#" class="btn btn-outline-primary btn-sm">Explore</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Card 3 -->
+    <div class="col-md-4 fade-in">
+      <div class="card">
+        <img src="images/france.jpg" class="card-img-top" alt="France">
+        <div class="card-body">
+          <h5 class="card-title">France</h5>
+          <p class="card-text">Romantic Eiffel Tower views and fine wine & cheese trails.</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="price-tag">$399</span>
+            <a href="#" class="btn btn-outline-primary btn-sm">Explore</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Card 3 -->
+    <div class="col-md-4 fade-in">
+      <div class="card">
+        <img src="images/france.jpg" class="card-img-top" alt="France">
+        <div class="card-body">
+          <h5 class="card-title">France</h5>
+          <p class="card-text">Romantic Eiffel Tower views and fine wine & cheese trails.</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="price-tag">$399</span>
+            <a href="#" class="btn btn-outline-primary btn-sm">Explore</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-4 fade-in">
+      <div class="card">
+        <img src="images/france.jpg" class="card-img-top" alt="France">
+        <div class="card-body">
+          <h5 class="card-title">France</h5>
+          <p class="card-text">Romantic Eiffel Tower views and fine wine & cheese trails.</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="price-tag">$399</span>
+            <a href="#" class="btn btn-outline-primary btn-sm">Explore</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-4 fade-in">
+      <div class="card">
+        <img src="images/france.jpg" class="card-img-top" alt="France">
+        <div class="card-body">
+          <h5 class="card-title">France</h5>
+          <p class="card-text">Romantic Eiffel Tower views and fine wine & cheese trails.</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="price-tag">$399</span>
+            <a href="#" class="btn btn-outline-primary btn-sm">Explore</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-4 fade-in">
+      <div class="card">
+        <img src="images/france.jpg" class="card-img-top" alt="France">
+        <div class="card-body">
+          <h5 class="card-title">France</h5>
+          <p class="card-text">Romantic Eiffel Tower views and fine wine & cheese trails.</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="price-tag">$399</span>
+            <a href="#" class="btn btn-outline-primary btn-sm">Explore</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-4 fade-in">
+      <div class="card">
+        <img src="images/france.jpg" class="card-img-top" alt="France">
+        <div class="card-body">
+          <h5 class="card-title">France</h5>
+          <p class="card-text">Romantic Eiffel Tower views and fine wine & cheese trails.</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="price-tag">$399</span>
+            <a href="#" class="btn btn-outline-primary btn-sm">Explore</a>
+          </div>
+        </div>
+      </div>
+    </div>    
+    
+  </div>
+</div>
+<!-- end explore destination -->
+ <!-- start city -->
+  <div class="container py-5">
+  <h2 class="text-center fw-bold mb-5">🏙️ Explore Cities in Style</h2>
+  <div class="row g-4">
+
+    <!-- Card 1 -->
+    <div class="col-md-4" style="animation-delay: 0.2s;">
+      <div class="card">
+        <img src="images/yangon.jpg" class="card-img-top" alt="Yangon">
+        <div class="card-body">
+          <h5 class="card-title">Yangon</h5>
+          <p class="card-text">Historic colonial charm and the majestic Shwedagon Pagoda.</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="price-tag">Ks 150,000</span>
+            <button class="btn gradient-btn btn-sm" data-bs-toggle="modal" data-bs-target="#modalYangon">
+              <i class="fas fa-plane-departure"></i>Explore
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-md-4" style="animation-delay: 0.4s;">
+      <div class="card">
+        <img src="images/seoul.jpg" class="card-img-top" alt="Seoul">
+        <div class="card-body">
+          <h5 class="card-title">Seoul</h5>
+          <p class="card-text">A perfect mix of technology, tradition and vibrant nightlife.</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="price-tag">Ks 320,000</span>
+            <button class="btn gradient-btn btn-sm" data-bs-toggle="modal" data-bs-target="#modalSeoul">
+              <i class="fas fa-plane-departure"></i>Explore
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-4" style="animation-delay: 0.6s;">
+      <div class="card">
+        <img src="images/dubai.jpg" class="card-img-top" alt="Dubai">
+        <div class="card-body">
+          <h5 class="card-title">Dubai</h5>
+          <p class="card-text">Luxury shopping, ultramodern architecture and desert adventures.</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="price-tag">Ks 500,000</span>
+            <button class="btn gradient-btn btn-sm" data-bs-toggle="modal" data-bs-target="#modalDubai">
+              <i class="fas fa-plane-departure"></i>Explore
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal: Yangon -->
+<div class="modal fade" id="modalYangon" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Yangon</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        Discover Yangon's rich culture, golden pagodas, and colonial streets.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Seoul -->
+<div class="modal fade" id="modalSeoul" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Seoul</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        Visit Seoul for its K-pop, temples, fashion, and high-tech lifestyle.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Dubai -->
+<div class="modal fade" id="modalDubai" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Dubai</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        Fly to Dubai for skyscrapers, shopping festivals, and luxury vibes.
+      </div>
+    </div>
+  </div>
+</div>
+
+ <!-- end city -->
+
+ <!-- grid-collapisible destination  -->  
+   
+  <div class="container py-5">
+  <h2 class="fw-bold">Search cheap flights by destination</h2>
+  <p class="text-muted">Find Cheap Flights</p>
+  <p>
+    Save money on airfare by searching for cheap flight tickets on KAYAK. KAYAK searches for flight deals on hundreds of airline ticket sites to help you find the cheapest flights.
+  </p>
+
+  <div class="row">
+    <!-- Column 1 -->
+    <div class="col-md-4">
+      <div class="accordion" >
+        <div class="accordion-item">
+          <h2 class="accordion-header" >
+            <button class="accordion-button collapsed"  type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+              Las Vegas Flights 
+            </button>
+          </h2>
+          <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#accordionCol1">
+            <div class="accordion-body">
+              Cheap flights to Vegas from over 20 cities. Deals start at $89.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+              Los Angeles Flights 
+            </button>
+          </h2>
+          <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#accordionCol1">
+            <div class="accordion-body">
+              Direct flights to LAX available nationwide.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Column 2 -->
+    <div class="col-md-4">
+      <div class="accordion" >
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="heading3">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+              New York Flights 
+            </button>
+          </h2>
+          <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#accordionCol2">
+            <div class="accordion-body">
+              NYC has three major airports to choose from.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="heading4">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
+              Miami Flights 
+            </button>
+          </h2>
+          <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#accordionCol2">
+            <div class="accordion-body">
+              Popular winter destination from northern US cities.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Column 3 -->
+    <div class="col-md-4">
+      <div class="accordion" >
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="heading5">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5">
+              London Flights 
+            </button>
+          </h2>
+          <div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#accordionCol3">
+            <div class="accordion-body">
+              Heathrow, Gatwick, Stansted – compare and save.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="heading6">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6">
+              Tokyo Flights 
+            </button>
+          </h2>
+          <div id="collapse6" class="accordion-collapse collapse" data-bs-parent="#accordionCol3">
+            <div class="accordion-body">
+              Fly to Narita or Haneda with premium carriers.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+ <!-- grid -collisible end -->
+  <div class="container py-5">
+  <h2 class="fw-bold">Search cheap flights by destination</h2>
+  <p class="text-muted">Find Cheap Flights</p>
+  <p class="mb-4">
+    Save money on airfare by searching for cheap flight tickets on KAYAK...
+  </p>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="flight-block">
+        <div class="flight-listing">Las Vegas Flights <i class="fas fa-chevron-down arrow-icon"></i></div>
+        <div class="dropdown-content">Fly direct from over 20 cities, including Chicago, LA, and NYC. Deals from $89 round-trip.</div>
+      </div>
+      <div class="flight-block">
+        <div class="flight-listing">Los Angeles Flights <i class="fas fa-chevron-down arrow-icon"></i></div>
+        <div class="dropdown-content">LAX flights from the U.S. and Asia. Nonstop options available.</div>
+      </div>
+      <!-- Add more blocks similarly -->
+    </div>
+
+    <div class="col-md-4">
+      <div class="flight-block">
+        <div class="flight-listing">New York Flights <i class="fas fa-chevron-down arrow-icon"></i></div>
+        <div class="dropdown-content">NYC offers three airports: JFK, LGA, and EWR. Compare all for best pricing.</div>
+      </div>
+      <!-- More destinations -->
+    </div>
+
+    <div class="col-md-4">
+      <div class="flight-block">
+        <div class="flight-listing">London Flights <i class="fas fa-chevron-down arrow-icon"></i></div>
+        <div class="dropdown-content">London Heathrow is the main hub. Save big by flying into Gatwick or Stansted.</div>
+      </div>
+      <!-- More destinations -->
+    </div>
+  </div>
+</div>
+
+<script>
+  // Collapse others when one opens
+  document.querySelectorAll('.flight-listing').forEach(listing => {
+    listing.addEventListener('click', () => {
+      const current = listing.parentElement;
+      document.querySelectorAll('.flight-block').forEach(block => {
+        if (block !== current) {
+          block.querySelector('.dropdown-content').style.display = 'none';
+          block.querySelector('.flight-listing').classList.remove('open');
+        }
+      });
+      const content = current.querySelector('.dropdown-content');
+      const isOpen = content.style.display === 'block';
+      content.style.display = isOpen ? 'none' : 'block';
+      listing.classList.toggle('open', !isOpen);
+    });
+  });
+</script>
+
+   
+
+ 
+  <!-- Footer -->
+  <footer class="mt-5 bg-light py-4">
+    <div class="container text-center">
+      <p class="mb-1">© 2025 Kayak Clone. All rights reserved.</p>
+      <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a>
+    </div>
+  </footer>
+
+
+
+    
+  <!-- Scripts -->
+  <script src="js/jquery.min.js"></script>
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

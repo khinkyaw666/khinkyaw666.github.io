@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flight Booking Payment</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #eef2f5;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .container-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      margin-top: 50px;
+    }
+    .section-title {
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .summary-box {
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .highlight {
+      font-weight: 600;
+      color: #2c3e50;
+    }
+    #totalPrice {
+      transition: all 0.3s ease-in-out;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="container-box">
+
+      <h2 class="text-center mb-4">✈️ Flight Booking Payment</h2>
+
+      <div class="row">
+        <!-- Left -->
+        <div class="col-md-5">
+          <div class="section-title">🌍 Trip Details</div>
+          <div class="mb-3">
+            <label class="form-label">From</label>
+            <select class="form-select" id="fromCity">
+              <option value="Yangon" selected>Yangon (RGN)</option>
+              <option value="Bangkok">Bangkok (BKK)</option>
+              <option value="Singapore">Singapore (SIN)</option>
+              <option value="Tokyo">Tokyo (NRT)</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">To</label>
+            <select class="form-select" id="toCity">
+              <option value="Bangkok">Bangkok (BKK)</option>
+              <option value="Singapore">Singapore (SIN)</option>
+              <option value="Tokyo">Tokyo (NRT)</option>
+              <option value="Yangon">Yangon (RGN)</option>
+            </select>
+          </div>
+
+          <div class="section-title">👥 Passengers</div>
+          <div class="summary-box">
+            <div class="mb-2">
+              <label for="adults" class="form-label">Adults</label>
+              <select class="form-select" id="adults">
+                <option value="1" selected>1 Adult</option>
+                <option value="2">2 Adults</option>
+                <option value="3">3 Adults</option>
+              </select>
+            </div>
+            <div class="mb-2">
+              <label for="children" class="form-label">Children</label>
+              <select class="form-select" id="children">
+                <option value="0" selected>0 Children</option>
+                <option value="1">1 Child</option>
+                <option value="2">2 Children</option>
+              </select>
+            </div>
+            <p class="mt-3"><span class="highlight">Total Price:</span> <span id="totalPrice">$0</span></p>
+          </div>
+
+          <div class="summary-box mt-3">
+            <p><span class="highlight">From:</span> <span id="summaryFrom">Yangon</span></p>
+            <p><span class="highlight">To:</span> <span id="summaryTo">Bangkok</span></p>
+          </div>
+        </div>
+
+        <!-- Right -->
+        <div class="col-md-7">
+          <div class="section-title">💳 Payment Details</div>
+          <form id="paymentForm" novalidate>
+
+            <div class="mb-3">
+              <label class="form-label">Cardholder Name</label>
+              <input type="text" class="form-control" id="cardName" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Card Number</label>
+              <input type="text" class="form-control" id="cardNumber" maxlength="19" placeholder="1234 5678 9012 3456" required>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Expiration Date</label>
+                <input type="text" class="form-control" id="expDate" placeholder="MM/YY" maxlength="5" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label">CVV</label>
+                <input type="text" class="form-control" id="cvv" maxlength="4" required>
+              </div>
+            </div>
+
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="saveCard">
+              <label class="form-check-label" for="saveCard">
+                Save this card for future bookings
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100" id="payBtn">Pay $0</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const adultPrice = 200;
+    const childPrice = 130;
+
+    const adultsInput = document.getElementById('adults');
+    const childrenInput = document.getElementById('children');
+    const totalPriceEl = document.getElementById('totalPrice');
+    const payBtn = document.getElementById('payBtn');
+    const fromCity = document.getElementById('fromCity');
+    const toCity = document.getElementById('toCity');
+    const summaryFrom = document.getElementById('summaryFrom');
+    const summaryTo = document.getElementById('summaryTo');
+
+    function animatePriceChange(from, to) {
+      const duration = 400;
+      const step = (to - from) / (duration / 20);
+      let current = from;
+
+      const interval = setInterval(() => {
+        current += step;
+        if ((step > 0 && current >= to) || (step < 0 && current <= to)) {
+          current = to;
+          clearInterval(interval);
+        }
+        totalPriceEl.textContent = `$${Math.round(current)}`;
+        payBtn.textContent = `Pay $${Math.round(current)}`;
+      }, 20);
+    }
+
+    function updateSummary() {
+      summaryFrom.textContent = fromCity.value;
+      summaryTo.textContent = toCity.value;
+    }
+
+    let lastTotal = 0;
+
+    function updateTotal() {
+      const adults = parseInt(adultsInput.value);
+      const children = parseInt(childrenInput.value);
+      const total = (adults * adultPrice) + (children * childPrice);
+      animatePriceChange(lastTotal, total);
+      lastTotal = total;
+    }
+
+    [adultsInput, childrenInput].forEach(el => el.addEventListener('change', updateTotal));
+    [fromCity, toCity].forEach(el => el.addEventListener('change', updateSummary));
+
+    // Initial setup
+    updateTotal();
+    updateSummary();
+
+    // Format card number in real-time
+    document.getElementById('cardNumber').addEventListener('input', function (e) {
+      let value = e.target.value.replace(/\D/g, '').substring(0, 16);
+      let formatted = value.replace(/(.{4})/g, '$1 ').trim();
+      e.target.value = formatted;
+    });
+
+    document.getElementById('paymentForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const form = e.target;
+      if (!form.checkValidity()) {
+        form.classList.add('was-validated');
+        return;
+      }
+
+      const name = document.getElementById('cardName').value;
+      const number = document.getElementById('cardNumber').value;
+      const exp = document.getElementById('expDate').value;
+      const total = totalPriceEl.textContent;
+
+      alert(`✅ Payment Successful!\n\nName: ${name}\nAmount: ${total}\nThank you, my sweet မိန်းမ 💖`);
+      form.reset();
+      updateTotal();
+    });
+  </script>
+
+</body>
+</html>

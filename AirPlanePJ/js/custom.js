@@ -26,3 +26,24 @@ $(document).ready(function(){
         }]
     });
 });
+// youtube
+
+    $(document).ready(function () {
+  // Sidebar toggle
+  $("#sidebarToggle").click(function () {
+    $("#sidebar").toggleClass("d-none");
+  });
+
+  // Navigation click actions
+  $(".menu-item").click(function () {
+    const target = $(this).data("target");
+
+    // Switch active class
+    $(".menu-item").removeClass("active");
+    $(this).addClass("active");
+
+    // Hide all and show selected
+    $(".page-section").addClass("d-none");
+    $("#" + target).removeClass("d-none");
+  });
+});

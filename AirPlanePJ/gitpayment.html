@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment - Flight Booking</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .payment-container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .form-control:invalid {
+      border-color: #dc3545;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="payment-container">
+      <h3 class="mb-4 text-center">Payment Details</h3>
+      <form id="paymentForm" novalidate>
+        <div class="mb-3">
+          <label for="cardName" class="form-label">Cardholder Name</label>
+          <input type="text" class="form-control" id="cardName" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="cardNumber" class="form-label">Card Number</label>
+          <input type="text" class="form-control" id="cardNumber" maxlength="19" placeholder="1234 5678 9012 3456" required>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="expDate" class="form-label">Expiration Date</label>
+            <input type="text" class="form-control" id="expDate" placeholder="MM/YY" maxlength="5" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="cvv" class="form-label">CVV</label>
+            <input type="text" class="form-control" id="cvv" maxlength="4" required>
+          </div>
+        </div>
+
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox" id="saveCard">
+          <label class="form-check-label" for="saveCard">
+            Save this card for future use
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Pay Now</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('paymentForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const form = e.target;
+      if (!form.checkValidity()) {
+        form.classList.add('was-validated');
+        return;
+      }
+
+      const name = document.getElementById('cardName').value;
+      const number = document.getElementById('cardNumber').value;
+      const exp = document.getElementById('expDate').value;
+      const cvv = document.getElementById('cvv').value;
+
+      alert(`Payment successful!\nCardholder: ${name}\nCard: ${number}\nExp: ${exp}`);
+      form.reset();
+    });
+  </script>
+
+  <!-- another -->
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flight Payment</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #eef2f5;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .container-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      margin-top: 50px;
+    }
+    .section-title {
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .summary-box {
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .form-control:invalid {
+      border-color: #dc3545;
+    }
+    .highlight {
+      font-weight: 600;
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="container-box">
+
+      <!-- Header -->
+      <h2 class="text-center mb-4">Flight Booking Payment</h2>
+
+      <div class="row">
+        <!-- Left: Trip Summary -->
+        <div class="col-md-5">
+          <div class="section-title">🛫 Trip Summary</div>
+          <div class="summary-box mb-3">
+            <p><span class="highlight">From:</span> Yangon (RGN)</p>
+            <p><span class="highlight">To:</span> Bangkok (BKK)</p>
+            <p><span class="highlight">Date:</span> June 20, 2025</p>
+            <p><span class="highlight">Flight:</span> KB 206</p>
+          </div>
+
+          <div class="section-title">👥 Passengers</div>
+          <div class="summary-box">
+            <p><span class="highlight">Adults:</span> 2</p>
+            <p><span class="highlight">Children:</span> 1</p>
+            <p><span class="highlight">Total Price:</span> $460</p>
+          </div>
+        </div>
+
+        <!-- Right: Payment Form -->
+        <div class="col-md-7">
+          <div class="section-title">💳 Payment Details</div>
+          <form id="paymentForm" novalidate>
+
+            <div class="mb-3">
+              <label for="cardName" class="form-label">Cardholder Name</label>
+              <input type="text" class="form-control" id="cardName" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="cardNumber" class="form-label">Card Number</label>
+              <input type="text" class="form-control" id="cardNumber" maxlength="19" placeholder="1234 5678 9012 3456" required>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="expDate" class="form-label">Expiration Date</label>
+                <input type="text" class="form-control" id="expDate" placeholder="MM/YY" maxlength="5" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="cvv" class="form-label">CVV</label>
+                <input type="text" class="form-control" id="cvv" maxlength="4" required>
+              </div>
+            </div>
+
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="saveCard">
+              <label class="form-check-label" for="saveCard">
+                Save this card for future bookings
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">Confirm & Pay $460</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('paymentForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const form = e.target;
+      if (!form.checkValidity()) {
+        form.classList.add('was-validated');
+        return;
+      }
+
+      const name = document.getElementById('cardName').value;
+      const number = document.getElementById('cardNumber').value;
+      const exp = document.getElementById('expDate').value;
+      const cvv = document.getElementById('cvv').value;
+
+      alert(`✅ Payment Successful!\n\nCardholder: ${name}\nCard: ${number}\nExp: ${exp}`);
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
+
+
+</body>
+</html>
