@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kayak Flight Booking</title>
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Kayak Clone</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Flights</a></li>
+          <li class="nav-item"><a class="nav-link" href="stay.html">Stay</a></li>
+          <li class="nav-item"><a class="nav-link" href="car.html">Car</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Flight Booking Form -->
+  <div class="container mt-5">
+    <h2 class="mb-4">Search Flights</h2>
+    <form>
+      <div class="row mb-3">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="From (City or Airport)">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="To (City or Airport)">
+        </div>
+        <div class="col">
+          <input type="date" class="form-control" id="departureDate">
+        </div>
+        <div class="col">
+          <input type="date" class="form-control" id="returnDate">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <select class="form-select">
+            <option selected>Passengers</option>
+            <option value="1">1 Adult</option>
+            <option value="2">2 Adults</option>
+          </select>
+        </div>
+        <div class="col">
+          <select class="form-select">
+            <option selected>Class</option>
+            <option value="eco">Economy</option>
+            <option value="bus">Business</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Search Flights</button>
+    </form>
+  </div>
+
+  <!-- another page -->
+   <div class="container mt-5">
+    <h2 class="mb-4">Search Hotels</h2>
+    <form>
+      <div class="row mb-3">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Destination or hotel name">
+        </div>
+        <div class="col">
+          <input type="date" class="form-control" placeholder="Check-in date">
+        </div>
+        <div class="col">
+          <input type="date" class="form-control" placeholder="Check-out date">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <select class="form-select">
+            <option selected>Guests</option>
+            <option value="1">1 Guest</option>
+            <option value="2">2 Guests</option>
+            <option value="3">3+ Guests</option>
+          </select>
+        </div>
+        <div class="col">
+          <select class="form-select">
+            <option selected>Rooms</option>
+            <option value="1">1 Room</option>
+            <option value="2">2 Rooms</option>
+            <option value="3">3+ Rooms</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success">Search Stays</button>
+    </form>
+  </div>
+
+  <!-- Car Rental Form -->
+  <div class="container mt-5">
+    <h2 class="mb-4">Search Rental Cars</h2>
+    <form>
+      <div class="row mb-3">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Pick-up location">
+        </div>
+        <div class="col">
+          <input type="date" class="form-control" placeholder="Pick-up date">
+        </div>
+        <div class="col">
+          <input type="time" class="form-control" placeholder="Pick-up time">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <input type="date" class="form-control" placeholder="Drop-off date">
+        </div>
+        <div class="col">
+          <input type="time" class="form-control" placeholder="Drop-off time">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-warning">Search Cars</button>
+    </form>
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
