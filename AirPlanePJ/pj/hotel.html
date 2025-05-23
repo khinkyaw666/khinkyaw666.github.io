@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking - Ready To Take Off!</title>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../fontawesome/css/all.min.css">
+</head>
+<body class="dark-theme">
+
+    <div class="wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="logo-link">
+                    <i class="fas fa-plane-departure"></i> <span>AIFLIGHT</span>
+                </a>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="#"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-plane"></i> <span>Search Flights</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-route"></i> <span>My Trips</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-globe-americas"></i> <span>Explore Destinations</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-hotel"></i> <span>Hotel Stays</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-book-open"></i> <span>Travel Guides</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-cog"></i> <span>Settings</span></a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <img src="https://via.placeholder.com/40" alt="User Avatar" class="rounded-circle me-2">
+                    <div class="user-info">
+                        <span class="user-name">Anita Cruz</span>
+                        <span class="user-email">anita@aiflight.com</span>
+                    </div>
+                    <button class="btn btn-logout" title="Log Out"><i class="fas fa-sign-out-alt"></i></button>
+                </div>
+            </div>
+        </nav>
+
+        <div id="content">
+            <nav class="navbar navbar-expand-lg topbar">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-toggle d-lg-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="search-box ms-auto me-3">
+                        <input type="text" class="form-control" placeholder="Search...">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item d-none d-md-block">
+                            <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
+                        </li>
+                        <li class="nav-item d-none d-md-block">
+                            <a class="nav-link" href="#"><i class="fas fa-envelope"></i></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle profile-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://via.placeholder.com/30" alt="User Avatar" class="rounded-circle me-2">
+                                Jason Holder
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><a class="dropdown-item" href="#">Settings</a></li>
+                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container-fluid py-4">
+
+                <div class="hero-banner hotel-banner p-4 mb-5">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 col-lg-7">
+                            <h2>FIND YOUR <br> <span class="text-accent">PERFECT STAY</span> WITH AIFLIGHT</h2>
+                            <p class="text-white-50">Discover the best hotels, resorts, and unique accommodations for your next journey.</p>
+                            <button class="btn btn-accent">Explore Hotels Now</button>
+                        </div>
+                        <div class="col-md-6 col-lg-5 text-end d-none d-md-block">
+                            <img src="img/hotel-hero-bg.jpg" alt="Luxury Hotel" class="img-fluid hotel-banner-graphic">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="section-title">Trending Stays</h3>
+                    <div class="section-nav">
+                        <button class="btn btn-icon"><i class="fas fa-arrow-left"></i></button>
+                        <button class="btn btn-icon"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mb-5 trending-stays-grid">
+                    <div class="col">
+                        <div class="hotel-card trending-card">
+                            <img src="img/hotel-trending-1.jpg" class="card-img-top" alt="Hotel 1">
+                            <div class="card-body">
+                                <span class="rating"><i class="fas fa-star"></i> 4.8</span>
+                                <h5 class="card-title">Grand Hyatt NYC</h5>
+                                <p class="card-text text-white-50">Luxury in the heart of the city</p>
+                                <div class="card-footer-info">
+                                    <span class="price">$350 <small>/night</small></span>
+                                    <button class="btn btn-sm btn-outline-accent">Book</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="hotel-card trending-card">
+                            <img src="img/hotel-trending-2.jpg" class="card-img-top" alt="Hotel 2">
+                            <div class="card-body">
+                                <span class="rating"><i class="fas fa-star"></i> 4.9</span>
+                                <h5 class="card-title">Bali Beach Resort</h5>
+                                <p class="card-text text-white-50">Tropical paradise getaway</p>
+                                <div class="card-footer-info">
+                                    <span class="price">$280 <small>/night</small></span>
+                                    <button class="btn btn-sm btn-outline-accent">Book</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="hotel-card trending-card">
+                            <img src="img/hotel-trending-3.jpg" class="card-img-top" alt="Hotel 3">
+                            <div class="card-body">
+                                <span class="rating"><i class="fas fa-star"></i> 4.5</span>
+                                <h5 class="card-title">Mountain View Lodge</h5>
+                                <p class="card-text text-white-50">Cozy retreat in the Alps</p>
+                                <div class="card-footer-info">
+                                    <span class="price">$210 <small>/night</small></span>
+                                    <button class="btn btn-sm btn-outline-accent">Book</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="hotel-card trending-card">
+                            <img src="img/hotel-trending-4.jpg" class="card-img-top" alt="Hotel 4">
+                            <div class="card-body">
+                                <span class="rating"><i class="fas fa-star"></i> 4.7</span>
+                                <h5 class="card-title">Tokyo Urban Escape</h5>
+                                <p class="card-text text-white-50">Modern stay near city attractions</p>
+                                <div class="card-footer-info">
+                                    <span class="price">$290 <small>/night</small></span>
+                                    <button class="btn btn-sm btn-outline-accent">Book</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h3 class="section-title">Exclusive Hotel Deals</h3>
+                            <div class="section-nav">
+                                <button class="btn btn-icon"><i class="fas fa-arrow-left"></i></button>
+                                <button class="btn btn-icon"><i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+                            <div class="col">
+                                <div class="hotel-card deal-card">
+                                    <span class="discount-badge">-20%</span>
+                                    <img src="img/hotel-deal-1.jpg" class="card-img-top" alt="Deal 1">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Springfield Inn</h5>
+                                        <p class="card-text text-white-50">Save big on your next stay.</p>
+                                        <div class="card-footer-info justify-content-end">
+                                            <button class="btn btn-sm btn-accent">View Deal</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="hotel-card deal-card">
+                                    <span class="discount-badge">-15%</span>
+                                    <img src="img/hotel-deal-2.jpg" class="card-img-top" alt="Deal 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Ocean Breeze Suites</h5>
+                                        <p class="card-text text-white-50">Coastal comfort, discounted price.</p>
+                                        <div class="card-footer-info justify-content-end">
+                                            <button class="btn btn-sm btn-accent">View Deal</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="hotel-card deal-card">
+                                    <span class="discount-badge">-10%</span>
+                                    <img src="img/hotel-deal-3.jpg" class="card-img-top" alt="Deal 3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">CityScape Hotel</h5>
+                                        <p class="card-text text-white-50">Urban convenience, great value.</p>
+                                        <div class="card-footer-info justify-content-end">
+                                            <button class="btn btn-sm btn-accent">View Deal</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <h3 class="section-title mb-4">Customer Feedback</h3>
+                        <div class="feedback-list">
+                            <div class="feedback-item">
+                                <img src="img/user-avatar-1.jpg" alt="User 1" class="rounded-circle feedback-avatar">
+                                <div class="feedback-content">
+                                    <p class="feedback-name">Jane Doe</p>
+                                    <p class="feedback-text text-white-50">"Seamless booking experience and amazing hotel stay! Highly recommend AIFlight."</p>
+                                </div>
+                            </div>
+                            <div class="feedback-item">
+                                <img src="img/user-avatar-2.jpg" alt="User 2" class="rounded-circle feedback-avatar">
+                                <div class="feedback-content">
+                                    <p class="feedback-name">John Smith</p>
+                                    <p class="feedback-text text-white-50">"Found a fantastic deal on a luxury hotel. Customer service was excellent."</p>
+                                </div>
+                            </div>
+                            <div class="feedback-item">
+                                <img src="img/user-avatar-3.jpg" alt="User 3" class="rounded-circle feedback-avatar">
+                                <div class="feedback-content">
+                                    <p class="feedback-name">Emily White</p>
+                                    <p class="feedback-text text-white-50">"The AI-powered recommendations really helped me pick the perfect hotel."</p>
+                                </div>
+                            </div>
+                            </div>
+                    </div>
+                </div>
+
+            </div></div></div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking - Ready To Take Off!</title>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../fontawesome/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                SkyBook
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Add Host</a></li>
+                    <li class="nav-item"><a class="nav-link" href="explore.html">Package</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+                <div class="d-flex">
+                    <a href="#" class="btn btn-outline-light me-2"><i class="fas fa-user-circle"></i> Login</a>
+                    <a href="#" class="btn btn-light"><i class="fas fa-bell"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section d-flex align-items-center justify-content-center text-center text-white">
+        <div class="overlay"></div>
+        <div class="container position-relative z-index-1">
+            <h1>Ready To Take Off?</h1>
+            </div>
+    </section>
+
+    <section class="booking-widget-section">
+        <div class="container">
+            <div class="booking-card">
+                <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="flight-tab" data-bs-toggle="tab" data-bs-target="#flight" type="button" role="tab" aria-controls="flight" aria-selected="true"><i class="fas fa-plane"></i> Flight</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="hotels-tab" data-bs-toggle="tab" data-bs-target="#hotels" type="button" role="tab" aria-controls="hotels" aria-selected="false"><i class="fas fa-hotel"></i> Hotels</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="cars-tab" data-bs-toggle="tab" data-bs-target="#cars" type="button" role="tab" aria-controls="cars" aria-selected="false"><i class="fas fa-car"></i> Cars</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="tours-tab" data-bs-toggle="tab" data-bs-target="#tours" type="button" role="tab" aria-controls="tours" aria-selected="false"><i class="fas fa-route"></i> Tour</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="flight" role="tabpanel" aria-labelledby="flight-tab">
+                        <form class="booking-form p-4">
+                            <div class="d-flex justify-content-center mb-3">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="tripType" id="roundTrip" value="roundTrip" checked>
+                                    <label class="form-check-label" for="roundTrip">Round Trip</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="tripType" id="oneWay" value="oneWay">
+                                    <label class="form-check-label" for="oneWay">One Way</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="tripType" id="multiCity" value="multiCity">
+                                    <label class="form-check-label" for="multiCity">Multi-City</label>
+                                </div>
+                            </div>
+
+                            <div class="row g-3 align-items-end">
+                                <div class="col-md-3">
+                                    <label for="origin" class="form-label">Origin</label>
+                                    <input type="text" class="form-control" id="origin" placeholder="London">
+                                    <small class="text-muted">United Kingdom</small>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="destination" class="form-label">Destination</label>
+                                    <input type="text" class="form-control" id="destination" placeholder="New York">
+                                    <small class="text-muted">United States</small>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="departDate" class="form-label">Depart</label>
+                                    <input type="date" class="form-control" id="departDate">
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="returnDate" class="form-label">Return</label>
+                                    <input type="date" class="form-control" id="returnDate">
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="passengers" class="form-label">Travelers</label>
+                                    <input type="number" class="form-control" id="passengers" value="1" min="1">
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-orange btn-lg">Search Flights</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="hotels" role="tabpanel" aria-labelledby="hotels-tab">
+                        <p class="p-4 text-center">Hotels booking form will go here.</p>
+                    </div>
+                    <div class="tab-pane fade" id="cars" role="tabpanel" aria-labelledby="cars-tab">
+                        <p class="p-4 text-center">Car rental form will go here.</p>
+                    </div>
+                    <div class="tab-pane fade" id="tours" role="tabpanel" aria-labelledby="tours-tab">
+                        <p class="p-4 text-center">Tour booking form will go here.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="promotions-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Amazing Deals & Offers</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4 col-lg-3">
+                    <div class="promo-card">
+                        <img src="img/promo-1.jpg" class="img-fluid rounded" alt="Promo Image">
+                        <div class="promo-content">
+                            <h3>Flat 2024 discount</h3>
+                            <p>On all flights</p>
+                            <button class="btn btn-sm btn-outline-primary">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3">
+                    <div class="promo-card">
+                        <img src="img/promo-2.jpg" class="img-fluid rounded" alt="Promo Image">
+                        <div class="promo-content">
+                            <h3>Best Last-Minute Savings</h3>
+                            <p>on all flights</p>
+                            <button class="btn btn-sm btn-outline-primary">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3">
+                    <div class="promo-card">
+                        <img src="img/promo-3.jpg" class="img-fluid rounded" alt="Promo Image">
+                        <div class="promo-content">
+                            <h3>20% Discount</h3>
+                            <p>Hotels & Resorts</p>
+                            <button class="btn btn-sm btn-outline-primary">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3">
+                    <div class="promo-card">
+                        <img src="img/promo-4.jpg" class="img-fluid rounded" alt="Promo Image">
+                        <div class="promo-content">
+                            <h3>MegaSale</h3>
+                            <p>Flat 30% Hotel Discount</p>
+                            <button class="btn btn-sm btn-outline-primary">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hot-deals-section py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5"><i class="fas fa-fire hot-icon me-2"></i> Hot Deals</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="destination-card card h-100 shadow-sm">
+                        <img src="img/dest-1.jpg" class="card-img-top" alt="Destination 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Maldives</h5>
+                            <p class="card-text text-muted">Starting from $799</p>
+                            <a href="#" class="btn btn-sm btn-primary">Explore</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="destination-card card h-100 shadow-sm">
+                        <img src="img/dest-2.jpg" class="card-img-top" alt="Destination 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Kyoto, Japan</h5>
+                            <p class="card-text text-muted">Starting from $850</p>
+                            <a href="#" class="btn btn-sm btn-primary">Explore</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="destination-card card h-100 shadow-sm">
+                        <img src="img/dest-3.jpg" class="card-img-top" alt="Destination 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Paris, France</h5>
+                            <p class="card-text text-muted">Starting from $650</p>
+                            <a href="#" class="btn btn-sm btn-primary">Explore</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="destination-card card h-100 shadow-sm">
+                        <img src="img/dest-4.jpg" class="card-img-top" alt="Destination 4">
+                        <div class="card-body">
+                            <h5 class="card-title">Rio de Janeiro</h5>
+                            <p class="card-text text-muted">Starting from $920</p>
+                            <a href="#" class="btn btn-sm btn-primary">Explore</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2024 SkyBook. All rights reserved.</p>
+            <p>
+                <a href="#" class="text-white me-3">Privacy Policy</a>
+                <a href="#" class="text-white me-3">Terms of Service</a>
+                <a href="#" class="text-white">Sitemap</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

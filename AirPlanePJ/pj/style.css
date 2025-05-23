@@ -1,0 +1,1306 @@
+/* General Body Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+/* Navbar Customization */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent for hero section */
+    transition: background-color 0.3s ease;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #fff !important;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 60vh; /* Adjust as needed */
+    background: url('../img/hero-background.webp') no-repeat center center/cover;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    display: flex; /* Use flexbox for centering */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Slightly darken the background */
+    z-index: 0;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1; /* Ensure text is above overlay */
+}
+
+
+/* Booking Widget Section */
+.booking-widget-section {
+    margin-top: -150px; /* Pull the widget up into the hero section */
+    position: relative;
+    z-index: 10;
+}
+
+.booking-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.booking-card .nav-tabs {
+    border-bottom: none; /* Remove default Bootstrap border */
+    margin-bottom: 20px;
+}
+
+.booking-card .nav-tabs .nav-link {
+    border: none;
+    background-color: transparent;
+    color: #666;
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+.booking-card .nav-tabs .nav-link.active {
+    background-color: #ff6f00; /* Orange active tab */
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(255, 111, 0, 0.3);
+}
+
+.booking-card .nav-tabs .nav-link:not(.active):hover {
+    color: #ff6f00;
+}
+
+.booking-form .form-label {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.booking-form .form-control {
+    border-radius: 8px;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.booking-form .form-control:focus {
+    border-color: #ff6f00;
+    box-shadow: 0 0 0 0.25rem rgba(255, 111, 0, 0.25);
+}
+
+.btn-orange {
+    background-color: #ff6f00;
+    border-color: #ff6f00;
+    color: #fff;
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-orange:hover {
+    background-color: #e06000;
+    border-color: #e06000;
+    color: #fff;
+}
+
+/* Promotional/Deals Section */
+.promotions-section {
+    background-color: #f0f2f5;
+    padding: 60px 0;
+    margin-top: 50px; /* Space from booking widget */
+}
+
+.promo-card {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    min-height: 250px; /* Ensure consistent height */
+    justify-content: center;
+    align-items: center;
+}
+
+.promo-card:hover {
+    transform: translateY(-5px);
+}
+
+.promo-card img {
+    max-height: 100px; /* Adjust as needed */
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.promo-card .promo-content h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.promo-card .promo-content p {
+    font-size: 0.95rem;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.promo-card .btn-outline-primary {
+    color: #ff6f00;
+    border-color: #ff6f00;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.promo-card .btn-outline-primary:hover {
+    background-color: #ff6f00;
+    color: #fff;
+}
+
+/* Hot Deals/Destinations Section */
+.hot-deals-section {
+    padding: 60px 0;
+}
+
+.hot-deals-section h2 {
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.hot-icon {
+    color: #ff6f00;
+}
+
+.destination-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.destination-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.destination-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.destination-card .card-body {
+    padding: 20px;
+}
+
+.destination-card .card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.destination-card .card-text {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    padding: 30px 0;
+    color: #bbb;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .booking-card {
+        padding: 15px;
+        margin-top: -100px; /* Adjust for smaller screens */
+    }
+
+    .booking-card .nav-tabs .nav-link {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    .booking-form .col-md-2,
+    .booking-form .col-md-3 {
+        flex: 0 0 100%; /* Stack columns on small screens */
+        max-width: 100%;
+    }
+
+    .booking-form .row.g-3 > div {
+        margin-bottom: 15px;
+    }
+
+    .promo-card {
+        padding: 15px;
+        min-height: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar .d-flex {
+        display: none !important; /* Hide login/bell on very small screens */
+    }
+
+    .navbar-collapse {
+        text-align: center;
+    }
+
+    .navbar-nav .nav-item {
+        margin: 5px 0;
+    }
+
+    .booking-card .nav-tabs {
+        flex-wrap: wrap;
+    }
+}
+
+
+/* *********************************************************************************************** */
+/*  explore page start */
+/* General Body & Dark Theme Setup */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.dark-theme {
+    background-color: #1a1a2e; /* Dark background color from mockup */
+    color: #e0e0e0; /* Light text color */
+}
+
+/* Wrapper for sidebar and content */
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+/* Sidebar Styling */
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #16213e; /* Slightly darker than body from mockup */
+    color: #fff;
+    transition: all 0.3s;
+    height: 100vh; /* Full height */
+    position: fixed; /* Fixed sidebar */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    overflow-y: auto; /* Enable scrolling for long content */
+
+    /* Corrected: Sidebar visible by default on large screens */
+    margin-left: 0;
+}
+
+.sidebar-header {
+    padding: 20px 15px;
+    background: #0f3460; /* Even darker header from mockup */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.sidebar-header .logo-link {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.sidebar-header .logo-link i {
+    color: #e94560; /* Accent color for logo icon */
+    margin-right: 8px;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#sidebar ul li a {
+    padding: 15px 20px;
+    font-size: 1.1em;
+    display: block;
+    color: #b0b0b0;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar ul li a:hover {
+    color: #fff;
+    background: #0f3460;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #e94560; /* Vibrant accent for active state */
+    border-radius: 5px;
+    margin: 0 10px; /* Some padding from sides */
+}
+
+#sidebar ul li a i {
+    margin-right: 10px;
+}
+
+.sidebar-promo {
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 20px 15px;
+    border-radius: 8px;
+    font-size: 0.9em;
+}
+
+.sidebar-promo i {
+    color: #e94560;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+/* Page Content Styling */
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    /* Corrected: Push content right to make space for sidebar on large screens */
+    margin-left: 250px;
+}
+
+/* Top Bar Styling */
+.topbar {
+    background: #16213e; /* Same as sidebar background */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    margin-bottom: 30px;
+    padding: 10px 20px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.topbar .search-box {
+    position: relative;
+    flex-grow: 1;
+    max-width: 400px;
+}
+
+.topbar .search-box .form-control {
+    background-color: #1a1a2e;
+    border: 1px solid #333;
+    color: #e0e0e0;
+    padding-left: 40px;
+    border-radius: 20px;
+    height: 40px;
+}
+
+.topbar .search-box .form-control::placeholder {
+    color: #888;
+}
+
+.topbar .search-box .search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.topbar .nav-link {
+    color: #e0e0e0;
+    font-size: 1.2rem;
+    padding: 0.5rem 0.8rem;
+    transition: color 0.3s ease;
+}
+
+.topbar .nav-link:hover {
+    color: #e94560;
+}
+
+.topbar .profile-link img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+
+.topbar .dropdown-menu {
+    background-color: #1a1a2e;
+    border: 1px solid #333;
+    border-radius: 8px;
+}
+
+.topbar .dropdown-item {
+    color: #e0e0e0;
+    transition: background-color 0.3s ease;
+}
+
+.topbar .dropdown-item:hover {
+    background-color: #0f3460;
+    color: #fff;
+}
+
+.btn-toggle {
+    background: #e94560;
+    border: none;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-toggle:hover {
+    background: #cf3752;
+    color: #fff;
+}
+
+/* Hero Banner Section */
+.hero-banner {
+    background-color: #2b2c4e; /* Darker purple for the banner from mockup */
+    border-radius: 15px;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 30px 40px;
+}
+
+.hero-banner h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+}
+
+.hero-banner .text-purple {
+    color: #e94560; /* Accent color for highlight */
+}
+
+.hero-banner p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Styling for the graphic in the hero banner to match the mockup's subtle position */
+.hero-banner .hero-banner-graphic {
+    position: absolute;
+    right: 0; /* Align to the right edge of the banner */
+    bottom: -20px; /* Slightly off the bottom */
+    max-height: 220px; /* Adjust size as needed */
+    width: auto;
+    opacity: 0.8; /* Slight transparency like mockup */
+    pointer-events: none; /* Make it unclickable */
+    transform: translateX(10%); /* Push it slightly outside to match the crop in mockup */
+}
+
+
+.btn-purple {
+    background-color: #e94560;
+    border-color: #e94560;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 25px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-purple:hover {
+    background-color: #cf3752;
+    border-color: #cf3752;
+    color: #fff;
+}
+
+/* Section Titles and Navigation */
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #e0e0e0;
+}
+
+.section-nav .btn-icon {
+    background-color: #16213e;
+    border: 1px solid #333;
+    color: #e0e0e0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+}
+
+.section-nav .btn-icon:hover {
+    background-color: #e94560;
+    border-color: #e94560;
+    color: #fff;
+}
+
+/* Explore Card Styling (for destinations and categories) */
+.explore-card {
+    background-color: #16213e; /* Card background */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.explore-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.explore-card .discount-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #e94560; /* Discount badge color */
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    font-weight: 700;
+    z-index: 5;
+}
+
+.explore-card .card-img-top {
+    height: 180px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.explore-card .card-body {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.explore-card .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.explore-card .card-text {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.explore-card .card-footer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.explore-card .price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #e94560;
+}
+
+.btn-outline-purple {
+    color: #e94560;
+    border-color: #e94560;
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 5px 12px;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-purple:hover {
+    background-color: #e94560;
+    color: #fff;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) {
+    /* Corrected: Sidebar hidden by default on small screens */
+    #sidebar {
+        margin-left: -250px;
+    }
+    /* Corrected: Sidebar shown when 'active' class is applied */
+    #sidebar.active {
+        margin-left: 0;
+    }
+    /* Corrected: Content takes full width on small screens by default */
+    #content {
+        width: 100%;
+        margin-left: 0;
+    }
+    /* Corrected: Content is pushed when sidebar is open */
+    #content.active {
+        margin-left: 250px;
+        overflow: hidden; /* Prevent horizontal scroll when sidebar is open */
+    }
+    .hero-banner .hero-banner-graphic {
+        display: none; /* Hide illustrative image on smaller screens as it might not fit */
+    }
+    .hero-banner {
+        text-align: center;
+        padding: 25px 30px;
+    }
+    .hero-banner h2 {
+        font-size: 1.8rem;
+    }
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .topbar .navbar-nav.ms-auto {
+        display: none !important; /* Hide extra icons/profile on very small screens for cleaner look */
+    }
+    .topbar .search-box {
+        margin: 0 auto; /* Center search box */
+    }
+    .btn-toggle {
+        margin-right: 15px; /* Space from search box */
+    }
+    .explore-card .card-img-top {
+        height: 150px;
+    }
+}
+/* explore page end */
+
+/* ********************************************************************************** */
+/* hotel page :start */
+/* General Body & Dark Theme Setup */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.dark-theme {
+    background-color: #1a1a2e; /* Dark background color from mockup */
+    color: #e0e0e0; /* Light text color */
+}
+
+/* Wrapper for sidebar and content */
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+/* Sidebar Styling (Compact/Expandable) */
+#sidebar {
+    min-width: 80px; /* Compact width */
+    max-width: 80px;
+    background: #16213e; /* Sidebar background from mockup */
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+    height: 100vh; /* Full height */
+    position: fixed; /* Fixed sidebar */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+    overflow-y: auto; /* Enable scrolling for long content */
+    overflow-x: hidden; /* Hide horizontal scroll on compact mode */
+    padding-bottom: 20px; /* Space for footer */
+}
+
+#sidebar.expanded {
+    min-width: 250px; /* Expanded width */
+    max-width: 250px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px 15px;
+    background: #0f3460; /* Header background from mockup */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    white-space: nowrap; /* Prevent wrapping in compact mode */
+}
+
+#sidebar .sidebar-header .logo-link {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sidebar .sidebar-header .logo-link i {
+    color: #e94560; /* Accent color for logo icon */
+    margin-right: 8px;
+    font-size: 1.8rem;
+}
+
+#sidebar .sidebar-header .logo-link span {
+    display: none; /* Hide text by default */
+}
+
+#sidebar.expanded .sidebar-header .logo-link span {
+    display: inline; /* Show text when expanded */
+}
+
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#sidebar ul li a {
+    padding: 15px 20px;
+    font-size: 1.1em;
+    display: flex; /* Use flex for icon and text alignment */
+    align-items: center;
+    color: #b0b0b0;
+    text-decoration: none;
+    transition: all 0.3s;
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+#sidebar ul li a:hover {
+    color: #fff;
+    background: #0f3460;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #e94560; /* Vibrant accent for active state */
+    border-radius: 5px;
+    margin: 0 10px; /* Some padding from sides */
+}
+
+#sidebar ul li a i {
+    margin-right: 15px; /* Space between icon and text */
+    min-width: 25px; /* Ensure icons align */
+    text-align: center;
+}
+
+#sidebar ul li a span {
+    display: none; /* Hide menu text by default */
+}
+
+#sidebar.expanded ul li a span {
+    display: inline; /* Show menu text when expanded */
+}
+
+/* Sidebar Footer (User Profile) */
+.sidebar-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: #0f3460; /* Same as sidebar header */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.sidebar-footer .user-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content in compact mode */
+    color: #fff;
+    text-align: center;
+    flex-direction: column; /* Stack for compact mode */
+}
+
+#sidebar.expanded .sidebar-footer .user-profile {
+    flex-direction: row; /* Row for expanded mode */
+    justify-content: space-between; /* Space out elements */
+    text-align: left;
+}
+
+.sidebar-footer .user-profile img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    margin-bottom: 5px; /* Space below avatar in compact mode */
+    transition: margin-right 0.3s ease;
+}
+
+#sidebar.expanded .sidebar-footer .user-profile img {
+    margin-right: 10px; /* Space to the right in expanded mode */
+    margin-bottom: 0;
+}
+
+.sidebar-footer .user-info {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+}
+
+#sidebar.expanded .sidebar-footer .user-info {
+    display: flex; /* Show user info when expanded */
+    flex-grow: 1; /* Allow info to take space */
+}
+
+.sidebar-footer .user-name {
+    font-weight: 600;
+    font-size: 0.95em;
+}
+
+.sidebar-footer .user-email {
+    font-size: 0.8em;
+    color: #b0b0b0;
+}
+
+.sidebar-footer .btn-logout {
+    background: transparent;
+    border: none;
+    color: #b0b0b0;
+    font-size: 1.2em;
+    padding: 5px;
+    transition: color 0.3s ease;
+    display: none; /* Hidden by default */
+}
+
+#sidebar.expanded .sidebar-footer .btn-logout {
+    display: inline-block; /* Show logout button when expanded */
+}
+
+.sidebar-footer .btn-logout:hover {
+    color: #e94560;
+}
+
+
+/* Page Content Styling */
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s ease-in-out;
+    /* Content pushed by default sidebar width */
+    margin-left: 80px;
+}
+
+#content.shifted {
+    margin-left: 250px; /* Content pushed when sidebar is expanded */
+}
+
+/* Top Bar Styling */
+.topbar {
+    background: #16213e; /* Same as sidebar background */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    margin-bottom: 30px;
+    padding: 10px 20px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.topbar .search-box {
+    position: relative;
+    flex-grow: 1;
+    max-width: 400px;
+}
+
+.topbar .search-box .form-control {
+    background-color: #1a1a2e;
+    border: 1px solid #333;
+    color: #e0e0e0;
+    padding-left: 40px;
+    border-radius: 20px;
+    height: 40px;
+}
+
+.topbar .search-box .form-control::placeholder {
+    color: #888;
+}
+
+.topbar .search-box .search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.topbar .nav-link {
+    color: #e0e0e0;
+    font-size: 1.2rem;
+    padding: 0.5rem 0.8rem;
+    transition: color 0.3s ease;
+}
+
+.topbar .nav-link:hover {
+    color: #e94560;
+}
+
+.topbar .profile-link img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+
+.topbar .dropdown-menu {
+    background-color: #1a1a2e;
+    border: 1px solid #333;
+    border-radius: 8px;
+}
+
+.topbar .dropdown-item {
+    color: #e0e0e0;
+    transition: background-color 0.3s ease;
+}
+
+.topbar .dropdown-item:hover {
+    background-color: #0f3460;
+    color: #fff;
+}
+
+.btn-toggle {
+    background: #e94560;
+    border: none;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-toggle:hover {
+    background: #cf3752;
+    color: #fff;
+}
+
+/* Hero Banner Section (Hotel specific) */
+.hero-banner.hotel-banner {
+    background-color: #2b2c4e; /* Darker purple for the banner from mockup */
+    border-radius: 15px;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 30px 40px;
+}
+
+.hero-banner.hotel-banner h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+}
+
+.hero-banner .text-accent {
+    color: #e94560; /* Accent color for highlight */
+}
+
+.hero-banner p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.hero-banner .hotel-banner-graphic {
+    position: absolute;
+    right: 0;
+    bottom: -20px;
+    max-height: 220px;
+    width: auto;
+    opacity: 0.8;
+    pointer-events: none;
+    transform: translateX(10%);
+}
+
+.btn-accent {
+    background-color: #e94560;
+    border-color: #e94560;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 25px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-accent:hover {
+    background-color: #cf3752;
+    border-color: #cf3752;
+    color: #fff;
+}
+
+/* Section Titles and Navigation */
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #e0e0e0;
+}
+
+.section-nav .btn-icon {
+    background-color: #16213e;
+    border: 1px solid #333;
+    color: #e0e0e0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+}
+
+.section-nav .btn-icon:hover {
+    background-color: #e94560;
+    border-color: #e94560;
+    color: #fff;
+}
+
+/* Hotel Card Styling (Trending Stays / Deals) */
+.hotel-card {
+    background-color: #16213e; /* Card background */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.hotel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.hotel-card .card-img-top {
+    height: 180px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.hotel-card .card-body {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hotel-card .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.hotel-card .card-text {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.hotel-card .card-footer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.hotel-card .price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #e94560;
+}
+
+.hotel-card .rating {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    font-weight: 700;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+}
+
+.hotel-card .rating i {
+    color: #ffc107; /* Star color */
+    margin-right: 5px;
+}
+
+.hotel-card.deal-card .discount-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #e94560;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    font-weight: 700;
+    z-index: 5;
+}
+
+.btn-outline-accent {
+    color: #e94560;
+    border-color: #e94560;
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 5px 12px;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-accent:hover {
+    background-color: #e94560;
+    color: #fff;
+}
+
+/* Customer Feedback Section */
+.feedback-list {
+    background-color: #16213e;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.feedback-item {
+    display: flex;
+    align-items: flex-start; /* Align text to top of image */
+    margin-bottom: 20px;
+}
+
+.feedback-item:last-child {
+    margin-bottom: 0;
+}
+
+.feedback-avatar {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid #e94560; /* Accent border */
+}
+
+.feedback-content {
+    flex-grow: 1;
+}
+
+.feedback-name {
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 3px;
+}
+
+.feedback-text {
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) {
+    /* Hide sidebar by default on small screens */
+    #sidebar {
+        margin-left: -80px; /* Hide compact sidebar */
+        min-width: 80px; /* Keep compact width */
+        max-width: 80px;
+    }
+    /* When active, sidebar slides in and expands */
+    #sidebar.expanded {
+        margin-left: 0;
+        min-width: 250px;
+        max-width: 250px;
+    }
+    /* Content starts full width on small screens */
+    #content {
+        margin-left: 0;
+    }
+    /* Content is pushed when sidebar is expanded */
+    #content.shifted {
+        margin-left: 250px;
+    }
+    .hero-banner.hotel-banner .hotel-banner-graphic {
+        display: none;
+    }
+    .hero-banner.hotel-banner {
+        text-align: center;
+        padding: 25px 30px;
+    }
+    .hero-banner.hotel-banner h2 {
+        font-size: 1.8rem;
+    }
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .topbar .navbar-nav.ms-auto {
+        display: none !important;
+    }
+    .topbar .search-box {
+        margin: 0 auto;
+    }
+    .btn-toggle {
+        margin-right: 15px;
+    }
+    .hotel-card .card-img-top {
+        height: 150px;
+    }
+}
+/* hotel page end */
+
+
+/* ************************************************** */

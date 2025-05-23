@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking - Ready To Take Off!</title>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../fontawesome/css/all.min.css">
+</head>
+
+<body class="dark-theme">
+
+    <div class="wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="logo-link">
+                    <i class="fas fa-plane-departure"></i> AIFLIGHT
+                </a>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="index.html"><i class="fas fa-plane"></i> Search Flights</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-route"></i> My Trips</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-heart"></i> Favorites</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-globe-americas"></i> Explore Destinations</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-book-open"></i> Travel Guides</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                </li>
+            </ul>
+
+            <div class="sidebar-promo">
+                <p><i class="fas fa-gift"></i> Get your first flight with 20% Discount!</p>
+            </div>
+        </nav>
+
+        <div id="content">
+            <nav class="navbar navbar-expand-lg topbar">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-toggle d-lg-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="search-box ms-auto me-3">
+                        <input type="text" class="form-control" placeholder="Search...">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item d-none d-md-block">
+                            <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
+                        </li>
+                        <li class="nav-item d-none d-md-block">
+                            <a class="nav-link" href="#"><i class="fas fa-envelope"></i></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle profile-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://via.placeholder.com/30" alt="User Avatar" class="rounded-circle me-2">
+                                Jason Holder
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container-fluid py-4">
+
+                <div class="hero-banner p-4 mb-5">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 col-lg-7"> <h2>DISCOVER YOUR NEXT <br> <span class="text-purple">ADVENTURE</span> WITH AIFLIGHT</h2>
+                            <p class="text-white-50">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                            <button class="btn btn-purple">Check Deals Now</button>
+                        </div>
+                        <div class="col-md-6 col-lg-5 text-end d-none d-md-block"> <img src="img/hero-explore-bg.jpg" alt="Travelers exploring" class="img-fluid hero-banner-graphic">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="section-title">Popular Destinations</h3>
+                    <div class="section-nav">
+                        <button class="btn btn-icon"><i class="fas fa-arrow-left"></i></button>
+                        <button class="btn btn-icon"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mb-5">
+                    <div class="col">
+                        <div class="explore-card">
+                            <span class="discount-badge">-15%</span>
+                            <img src="img/explore-dest-1.jpg" class="card-img-top" alt="Destination 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Paris, France</h5>
+                                <p class="card-text text-white-50">Culture & Romance</p>
+                                <div class="card-footer-info">
+                                    <span class="price">$599</span>
+                                    <button class="btn btn-sm btn-outline-purple">View Deals</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="explore-card">
+                            <span class="discount-badge">-10%</span>
+                            <img src="img/explore-dest-2.jpg" class="card-img-top" alt="Destination 2">
+                            <div class="card-body">
+                                <h5 class="card-title">Bali, Indonesia</h5>
+                                <p class="card-text text-white-50">Beaches & Relaxation</p>
+                                <div class="card-footer-info">
+                                    <span class="price">$899</span>
+                                    <button class="btn btn-sm btn-outline-purple">View Deals</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="explore-card">
+                            <span class="discount-badge">-25%</span>
+                            <img src="img/explore-dest-3.jpg" class="card-img-top" alt="Destination 3">
+                            <div class="card-body">
+                                <h5 class="card-title">Kyoto, Japan</h5>
+                                <p class="card-text text-white-50">Tradition & Nature</p>
+                                <div class="card-footer-info">
+                                    <span class="price">$749</span>
+                                    <button class="btn btn-sm btn-outline-purple">View Deals</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="explore-card">
+                            <span class="discount-badge">-20%</span>
+                            <img src="img/explore-dest-4.jpg" class="card-img-top" alt="Destination 4">
+                            <div class="card-body">
+                                <h5 class="card-title">New York, USA</h5>
+                                <p class="card-text text-white-50">City & Culture</p>
+                                <div class="card-footer-info">
+                                    <span class="price">$679</span>
+                                    <button class="btn btn-sm btn-outline-purple">View Deals</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="section-title">Explore Travel Categories</h3>
+                    <div class="section-nav">
+                        <button class="btn btn-icon"><i class="fas fa-arrow-left"></i></button>
+                        <button class="btn btn-icon"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                    <div class="col">
+                        <div class="explore-card">
+                            <img src="img/category-beach.jpg" class="card-img-top" alt="Beach Category">
+                            <div class="card-body">
+                                <h5 class="card-title">Beach Escapes</h5>
+                                <p class="card-text text-white-50">Sun, sand, and sea.</p>
+                                <div class="card-footer-info justify-content-end">
+                                    <button class="btn btn-sm btn-outline-purple">Discover</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="explore-card">
+                            <img src="img/category-mountain.jpg" class="card-img-top" alt="Mountain Category">
+                            <div class="card-body">
+                                <h5 class="card-title">Mountain Adventures</h5>
+                                <p class="card-text text-white-50">Hike, climb, explore.</p>
+                                <div class="card-footer-info justify-content-end">
+                                    <button class="btn btn-sm btn-outline-purple">Discover</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="explore-card">
+                            <img src="img/category-city.jpg" class="card-img-top" alt="City Category">
+                            <div class="card-body">
+                                <h5 class="card-title">City Breaks</h5>
+                                <p class="card-text text-white-50">Urban exploration.</p>
+                                <div class="card-footer-info justify-content-end">
+                                    <button class="btn btn-sm btn-outline-purple">Discover</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col">
+                        <div class="explore-card">
+                            <img src="img/category-wildlife.jpg" class="card-img-top" alt="Wildlife Category">
+                            <div class="card-body">
+                                <h5 class="card-title">Wildlife & Nature</h5>
+                                <p class="card-text text-white-50">Safari & national parks.</p>
+                                <div class="card-footer-info justify-content-end">
+                                    <button class="btn btn-sm btn-outline-purple">Discover</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div></div></div>
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

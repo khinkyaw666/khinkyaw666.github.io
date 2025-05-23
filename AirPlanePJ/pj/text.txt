@@ -1,0 +1,11 @@
+airplane-booking/
+├── index.html
+├── css/
+│   └── style.css
+├── js/
+│   └── script.js
+└── img/
+    ├── hero-background.jpg
+    ├── promo-1.jpg
+    ├── promo-2.jpg
+    └── ... (other images)
