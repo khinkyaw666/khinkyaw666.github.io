@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for specific elements not easily handled by Tailwind utilities or for overrides */
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scroll on small screens */
+        }
+
+        /* Hero section background image with overlay */
+        .hero-section {
+            background-image: url('https://placehold.co/1920x800/000000/FFFFFF?text=Hero+Background'); /* Replace with your actual hero image */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1; /* Ensure content is above the overlay */
+        }
+
+        /* Custom scrollbar for better aesthetics (optional) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <nav class="bg-white shadow-sm py-4 fixed w-full z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-900">
+                <img src="https://placehold.co/120x40/60A5FA/FFFFFF?text=LOGO" alt="Company Logo" class="h-10 rounded">
+            </a>
+
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="text-gray-600 hover:text-blue-600 font-medium transition duration-300">Home</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 font-medium transition duration-300">Properties</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 font-medium transition duration-300">About Us</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 font-medium transition duration-300">Contact</a>
+            </div>
+
+            <div class="hidden md:block">
+                <button class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300 shadow-md">Login</button>
+            </div>
+
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-blue-600 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 border-t border-gray-200">
+            <a href="#" class="block py-2 text-gray-700 hover:bg-gray-100 rounded-md">Home</a>
+            <a href="#" class="block py-2 text-gray-700 hover:bg-gray-100 rounded-md">Properties</a>
+            <a href="#" class="block py-2 text-gray-700 hover:bg-gray-100 rounded-md">About Us</a>
+            <a href="#" class="block py-2 text-gray-700 hover:bg-gray-100 rounded-md">Contact</a>
+            <button class="w-full mt-4 bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300 shadow-md">Login</button>
+        </div>
+    </nav>
+
+    <section class="hero-section min-h-[600px] flex items-center justify-center text-center text-white pt-24 pb-12 md:pb-24">
+        <div class="container mx-auto px-4 hero-content">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 drop-shadow-lg">
+                Compra, renta o invierte con confianza
+            </h1>
+            <p class="text-lg md:text-xl mb-10 max-w-2xl mx-auto opacity-90 drop-shadow-md">
+                Encuentra la propiedad perfecta para ti con nuestros asesores expertos.
+            </p>
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-2xl max-w-3xl mx-auto text-gray-800">
+                <form class="grid grid-cols-1 md:grid-cols-3 gap-4" id="search-form">
+                    <input type="text" placeholder="Buscar propiedades..." class="p-3 md:p-4 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200">
+                    <select class="p-3 md:p-4 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200">
+                        <option value="">Tipo de Propiedad</option>
+                        <option value="house">Casa</option>
+                        <option value="apartment">Apartamento</option>
+                        <option value="land">Terreno</option>
+                    </select>
+                    <button type="submit" class="bg-blue-600 text-white p-3 md:p-4 rounded-lg hover:bg-blue-700 transition duration-300 font-semibold shadow-md">
+                        Buscar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div class="carousel-wrapper">
+        <div class="main-content">
+            <h1>Marrakech Merzouga</h1>
+            <p>Texto descriptivo sobre el lugar. Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+            <button class="btn btn-explore">Explorar</button>
+            <div class="carousel-navigation">
+                <button><i class="fas fa-arrow-left"></i></button>
+                <button><i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div class="thumbnail-carousel-container">
+            <div class="thumbnail-carousel" id="thumbnailCarousel">
+                <div class="thumbnail-item">
+                    <img src="https://via.placeholder.com/200x120/FF5733/FFFFFF?text=Image+1" alt="Marrakech Merzouga">
+                    <div class="caption">Marrakech Merzouga</div>
+                </div>
+                <div class="thumbnail-item">
+                    <img src="https://via.placeholder.com/200x120/33FF57/FFFFFF?text=Image+2" alt="Nagano Prefecture">
+                    <div class="caption">Nagano Prefecture</div>
+                </div>
+                <div class="thumbnail-item">
+                    <img src="https://via.placeholder.com/200x120/3357FF/FFFFFF?text=Image+3" alt="Yosemite National Park">
+                    <div class="caption">Yosemite National Park</div>
+                </div>
+                <div class="thumbnail-item">
+                    <img src="https://via.placeholder.com/200x120/FFFF33/333333?text=Image+4" alt="Los Lances Beach">
+                    <div class="caption">Los Lances Beach</div>
+                </div>
+                <div class="thumbnail-item">
+                    <img src="https://via.placeholder.com/200x120/FF33FF/FFFFFF?text=Image+5" alt="Desert Oasis">
+                    <div class="caption">Desert Oasis</div>
+                </div>
+                <div class="thumbnail-item">
+                    <img src="https://via.placeholder.com/200x120/33FFFF/333333?text=Image+6" alt="Mountain View">
+                    <div class="caption">Mountain View</div>
+                </div>
+                <div class="thumbnail-item">
+                    <img src="https://via.placeholder.com/200x120/C0C0C0/333333?text=Image+7" alt="Cityscape">
+                    <div class="caption">Cityscape</div>
+                </div>
+            </div>
+            <div class="thumbnail-arrows">
+                <button id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+                <button id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="py-16 bg-gray-50" id="property-showcase-section">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+                Descubra la propiedad moderna y privacidad
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://placehold.co/600x400/E0E7FF/333333?text=Modern+Villa" alt="Modern Villa" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Modern Villa</h3>
+                        <p class="text-blue-600 font-bold text-lg mb-3">$5,200,000</p>
+                        <p class="text-gray-600 text-sm mb-4">Lujosa villa con vistas panorámicas y amplios jardines.</p>
+                        <button class="bg-blue-500 text-white px-5 py-2 rounded-full text-sm hover:bg-blue-600 transition duration-300">Ver Detalles</button>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://placehold.co/600x400/E0E7FF/333333?text=Beachfront+Condo" alt="Beachfront Condo" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Condominio Frente al Mar</h3>
+                        <p class="text-blue-600 font-bold text-lg mb-3">$1,850,000</p>
+                        <p class="text-gray-600 text-sm mb-4">Disfruta de la brisa marina en este exclusivo apartamento.</p>
+                        <button class="bg-blue-500 text-white px-5 py-2 rounded-full text-sm hover:bg-blue-600 transition duration-300">Ver Detalles</button>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://placehold.co/600x400/E0E7FF/333333?text=Urban+Loft" alt="Urban Loft" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Loft Urbano Moderno</h3>
+                        <p class="text-blue-600 font-bold text-lg mb-3">$750,000</p>
+                        <p class="text-gray-600 text-sm mb-4">Perfecto para la vida en la ciudad, cerca de todo.</p>
+                        <button class="bg-blue-500 text-white px-5 py-2 rounded-full text-sm hover:bg-blue-600 transition duration-300">Ver Detalles</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+                Sus asesores inmobiliarios de confianza
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-8 rounded-xl shadow-lg bg-blue-50">
+                    <i class="fas fa-users text-5xl text-blue-600 mb-4"></i>
+                    <h3 class="text-5xl font-extrabold text-gray-900 mb-2">17K+</h3>
+                    <p class="text-lg text-gray-600">Clientes Satisfechos</p>
+                </div>
+                <div class="p-8 rounded-xl shadow-lg bg-blue-50">
+                    <i class="fas fa-handshake text-5xl text-blue-600 mb-4"></i>
+                    <h3 class="text-5xl font-extrabold text-gray-900 mb-2">25+</h3>
+                    <p class="text-lg text-gray-600">Años de Experiencia</p>
+                </div>
+                <div class="p-8 rounded-xl shadow-lg bg-blue-50">
+                    <i class="fas fa-home text-5xl text-blue-600 mb-4"></i>
+                    <h3 class="text-5xl font-extrabold text-gray-900 mb-2">150+</h3>
+                    <p class="text-lg text-gray-600">Propiedades Vendidas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+                Descubra las últimas propiedades y hogares
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://placehold.co/600x400/E0E7FF/333333?text=Luxury+Villa" alt="Luxury Villa" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Villa de Lujo, Miami</h3>
+                        <p class="text-gray-600 text-sm">Experimenta el lujo en esta impresionante propiedad con piscina infinita.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://placehold.co/600x400/E0E7FF/333333?text=Mountain+Chalet" alt="Mountain Chalet" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Chalet de Montaña, Aspen</h3>
+                        <p class="text-gray-600 text-sm">Escápate a la naturaleza en este acogedor chalet con vistas espectaculares.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://placehold.co/600x400/E0E7FF/333333?text=City+Penthouse" alt="City Penthouse" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Ático en la Ciudad, Nueva York</h3>
+                        <p class="text-gray-600 text-sm">Vive la vida urbana en este moderno ático con todas las comodidades.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Testimonios de Clientes</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-blue-50 p-8 rounded-xl shadow-md flex flex-col items-center text-center">
+                    <img src="https://placehold.co/100x100/60A5FA/FFFFFF?text=Client1" alt="Client 1" class="w-24 h-24 rounded-full object-cover mb-4 shadow-md">
+                    <p class="text-lg md:text-xl italic text-gray-700 mb-3">
+                        "Excelente servicio y un gran equipo! Nos ayudaron a encontrar la casa de nuestros sueños de forma rápida y eficiente."
+                    </p>
+                    <p class="font-semibold text-blue-600">- Jane Doe, Compradora de Vivienda</p>
+                </div>
+                <div class="bg-blue-50 p-8 rounded-xl shadow-md flex flex-col items-center text-center">
+                    <img src="https://placehold.co/100x100/60A5FA/FFFFFF?text=Client2" alt="Client 2" class="w-24 h-24 rounded-full object-cover mb-4 shadow-md">
+                    <p class="text-lg md:text-xl italic text-gray-700 mb-3">
+                        "Profesionales, conocedores y siempre disponibles. Recomiendo encarecidamente sus servicios inmobiliarios."
+                    </p>
+                    <p class="font-semibold text-blue-600">- John Smith, Inversor</p>
+                </div>
+                <div class="bg-blue-50 p-8 rounded-xl shadow-md flex flex-col items-center text-center">
+                    <img src="https://placehold.co/100x100/60A5FA/FFFFFF?text=Client3" alt="Client 3" class="w-24 h-24 rounded-full object-cover mb-4 shadow-md">
+                    <p class="text-lg md:text-xl italic text-gray-700 mb-3">
+                        "El proceso fue sencillo y sin estrés. ¡Gracias por toda su ayuda!"
+                    </p>
+                    <p class="font-semibold text-blue-600">- Emily White, Vendedora</p>
+                </div>
+                <div class="bg-blue-50 p-8 rounded-xl shadow-md flex flex-col items-center text-center">
+                    <img src="https://placehold.co/100x100/60A5FA/FFFFFF?text=Client4" alt="Client 4" class="w-24 h-24 rounded-full object-cover mb-4 shadow-md">
+                    <p class="text-lg md:text-xl italic text-gray-700 mb-3">
+                        "Superaron nuestras expectativas. ¡Absolutamente satisfechos con nuestra nueva propiedad!"
+                    </p>
+                    <p class="font-semibold text-blue-600">- David Green, Nuevo Propietario</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-blue-700 text-white text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Listo para trabajar con nosotros?</h2>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90">
+                Conéctate con nuestros expertos y encuentra tu propiedad perfecta hoy mismo.
+            </p>
+            <button class="bg-white text-blue-700 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition duration-300 shadow-xl">
+                Contactar Ahora
+            </button>
+        </div>
+    </section>
+
+    <section>
+        <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">SkyJourney</h5>
+                    <p class="text-muted">Your trusted partner for flights, hotels, cars, and more. We make travel planning easy and affordable.</p>
+                    <div class="d-flex">
+                        <a href="#" class="social-icon me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">Company</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-2"><a href="#">About Us</a></li>
+                        <li class="mb-2"><a href="#">Careers</a></li>
+                        <li class="mb-2"><a href="#">Press</a></li>
+                        <li class="mb-2"><a href="#">Blog</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">Support</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-2"><a href="#">Help Center</a></li>
+                        <li class="mb-2"><a href="#">FAQs</a></li>
+                        <li class="mb-2"><a href="#">Cancellation Policy</a></li>
+                        <li class="mb-2"><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="fw-bold mb-3">Contact</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 123 Travel Street, City</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> +1 (555) 123-4567</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@skyjourney.com</li>
+                    </ul>
+                    <div class="mt-3">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgNjAiPjxyZWN0IHdpZHRoPSI2MCIgaGVpZ2h0PSI0MCIgZmlsbD0iIzE1NjVjMCIgcng9IjUiLz48cmVjdCB4PSI3MCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjZmZhMDAwIiByeD0iNSIvPjxyZWN0IHg9IjE0MCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjZWIwMDFiIiByeD0iNSIvPjxyZWN0IHg9IjIxMCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjNjYzM2NjIiByeD0iNSIvPjwvc3ZnPg==" alt="Payment Methods" height="30">
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="small text-muted mb-0">&copy; 2023 SkyJourney. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="small text-muted mb-0">Terms of Service | Privacy Policy | Cookie Policy</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+ 
+    </section>
+
+    <script>
+        // JavaScript for Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // JavaScript for Search Button Smooth Scroll
+        const searchForm = document.getElementById('search-form');
+        const propertyShowcaseSection = document.getElementById('property-showcase-section');
+
+        if (searchForm && propertyShowcaseSection) {
+            searchForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                propertyShowcaseSection.scrollIntoView({
+                    behavior: 'smooth' // Smooth scroll effect
+                });
+            });
+        }
+    </script>
+</body>
+</html>

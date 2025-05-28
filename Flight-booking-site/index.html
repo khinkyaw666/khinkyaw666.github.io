@@ -13,23 +13,39 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/desti.css">
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-light bg-white shadow-sm px-4 py-2">
-    <a class="navbar-brand text-orange fs-4" href="#">
-      <span>K</span><span>A</span><span>Y</span><span>A</span><span>K</span>
-    </a>
-    <div class="ms-auto">
-      <button class="btn btn-outline-dark">
-        <i class="fas fa-user"></i> Sign in
-      </button>
-    </div>
-  </nav>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark mb-5">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                SkyBook
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="explore.html">Packages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sign in.html">Sign in</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Register</a></li>
+                </ul>
+                <div class="d-flex">
+                    <a href="#" class="btn btn-outline-light me-2"><i class="fas fa-user-circle"></i> Login</a>
+                    <a href="#" class="btn btn-light"><i class="fas fa-bell"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
 
   <!-- Header -->
-  <div class="container mt-5">
+  <div class="container mt-5 py-5">
     <h1 class="fw-bold text-center mb-4">Compare flight deals from 100s of sites.</h1>
 
     <!-- Navigation Tabs -->
@@ -38,7 +54,7 @@
       <button class="btn tab-btn"><i class="fas fa-bed"></i> Stays</button>
       <button class="btn tab-btn"><i class="fas fa-car"></i> Cars</button>
       <button class="btn tab-btn"><i class="fas fa-suitcase"></i> Packages</button>
-      <button class="btn tab-btn"><i class="fas fa-robot"></i> KAYAK.ai</button>
+      <button class="btn tab-btn"><i class="fas fa-search"></i> Explore</button>
     </div>
 
     <!-- Search Box -->
@@ -69,39 +85,61 @@
           </select>
         </div>
         <div class="col-md-1 d-grid">
-          <button type="submit" class="btn btn-orange"><i class="fas fa-search"></i></button>
+          <button type="submit" class="btn btn-blue"><a class="nav-link" href="booking.html">Register</a></button>
         </div>
       </form>
     </div>
     <!-- end index page -->
 
-    <!-- start explore destination -->
-     <!-- Destination Search Accordion -->
-  <section class="destinations mt-5 container">
-    <h2 class="mb-4 fw-semibold">Search cheap flights by destination</h2>
-    <div class="accordion" id="accordionDest">
-      <div class="accordion-item">
-        <h2 class="accordion-header">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUS">
-            United States
-          </button>
-        </h2>
-        <div id="collapseUS" class="accordion-collapse collapse show" data-bs-parent="#accordionDest">
-          <div class="accordion-body">
-            <ul class="row list-unstyled g-2">
-              <li class="col-md-3"><a href="#">Flights to New York</a></li>
-              <li class="col-md-3"><a href="#">Flights to Miami</a></li>
-              <li class="col-md-3"><a href="#">Flights to LA</a></li>
-              <li class="col-md-3"><a href="#">Flights to Chicago</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <!-- More accordion items can go here -->
-    </div>
-  </section>
+  
+<!-- Popular Destinations -->
+  <div class="carousel-wrapper my-5">
+        <div class="main-content" id="mainContent">
+            <div class="detail-image-container" id="detailImageContainer">
+                <img src="https://via.placeholder.com/800x400/333333/FFFFFF?text=Select+an+Image" alt="Placeholder Image">
+            </div>
+            <h1 class="detail-title" id="detailTitle">Select an Image Below</h1>
+            <p class="detail-description" id="detailDescription">Click on any thumbnail to see its details here.</p>
+            <button class="btn btn-explore">Explorar</button>
+            </div>
 
-  <!-- Popular Destinations -->
+        <div class="thumbnail-carousel-container">
+            <div class="thumbnail-carousel" id="thumbnailCarousel">
+                <div class="thumbnail-item" data-image-src="C:\Users\User\Documents\khinkyaw666.github.io\Flight-booking-site\images\seinpiterbug.jpg" data-title="Marrakech Merzouga" data-description="A vibrant city in Morocco, known for its bustling souks and historic palaces.">
+                    <img src="russia.jpg" alt="Marrakech Merzouga">
+                    <div class="caption">Marrakech Merzouga</div>
+                </div>
+                <div class="thumbnail-item" data-image-src="images/china.jpg" data-title="Nagano Prefecture" data-description="Home to stunning Japanese Alps, hot springs, and historic temples.">
+                    <img src="Thiland.jpg" alt="Nagano Prefecture">
+                    <div class="caption">Nagano Prefecture</div>
+                </div>
+                <div class="thumbnail-item" data-image-src="C:\Users\User\Documents\khinkyaw666.github.io\Flight-booking-site\images\city\England.jpg" data-title="Yosemite National Park" data-description="Famous for its towering waterfalls, ancient giant sequoias, and granite cliffs.">
+                    <img src="UK.jpg" alt="Yosemite National Park">
+                    <div class="caption">Uk</div>
+                </div>
+                <div class="thumbnail-item" data-image-src="C:\Users\User\Documents\khinkyaw666.github.io\Flight-booking-site\images\laos.jpg" data-title="Los Lances" data-description="A beautiful sandy beach in Tarifa, Spain, popular for kitesurfing.">
+                    <img src="laos.jpg" alt="Los Lances Beach">
+                    <div class="caption">Los Lances Beach</div>
+                </div>
+                <div class="thumbnail-item" data-image-src="C:\Users\User\Documents\khinkyaw666.github.io\Flight-booking-site\images\ukraine.jpg" data-title="Desert Oasis" data-description="A fertile spot in the desert where water is found, often with lush vegetation.">
+                    <img src="Dubai.jpg" alt="Desert Oasis">
+                    <div class="caption">Desert Oasis</div>
+                </div>
+                <div class="thumbnail-item" data-image-src="C:\Users\User\Documents\khinkyaw666.github.io\Flight-booking-site\images\vietnam.jpg" data-title="Mountain View" data-description="A picturesque vista featuring majestic peaks and serene landscapes.">
+                    <img src="France.jpg" alt="Mountain View">
+                    <div class="caption">Mountain View</div>
+                </div>
+                <div class="thumbnail-item" data-image-src="C:\Users\User\Documents\khinkyaw666.github.io\Flight-booking-site\images\germany.jpg" data-title="Cityscape" data-description="An expansive view of a city's buildings and structures.">
+                    <img src="china.jpg" alt="Cityscape">
+                    <div class="caption">Cityscape</div>
+                </div>
+            </div>
+            <div class="thumbnail-arrows">
+                <button id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+                <button id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
   
 <!-- Hero section -->
      
@@ -112,13 +150,13 @@
     <!-- Card 1 -->
     <div class="col-md-4 fade-in">
       <div class="card">
-        <img src="images/thailand.jpg" class="card-img-top" alt="Thailand">
+        <img src="images/Thiland.jpg" class="card-img-top" alt="Thailand">
         <div class="card-body">
           <h5 class="card-title">Thailand</h5>
           <p class="card-text">Land of Smiles with stunning beaches and spicy street food.</p>
           <div class="d-flex justify-content-between align-items-center">
             <span class="price-tag">$299</span>
-            <a href="#" class="btn btn-outline-primary btn-sm">Explore</a>
+            <a href="#" class="btn gradient-btn btn-outline btn-sm">Explore</a>
           </div>
         </div>
       </div>
@@ -133,7 +171,7 @@
           <p class="card-text">Experience cherry blossoms, sushi and samurai heritage.</p>
           <div class="d-flex justify-content-between align-items-center">
             <span class="price-tag">$499</span>
-            <a href="#" class="btn btn-outline-primary btn-sm">Explore</a>
+            <a href="#" class="btn gradient-btn btn-outline btn-sm">Explore</a>
           </div>
         </div>
       </div>
@@ -148,99 +186,99 @@
           <p class="card-text">Romantic Eiffel Tower views and fine wine & cheese trails.</p>
           <div class="d-flex justify-content-between align-items-center">
             <span class="price-tag">$399</span>
-            <a href="#" class="btn btn-outline-primary btn-sm">Explore</a>
+            <a href="#" class="btn gradient-btn btn-outline btn-sm">Explore</a>
           </div>
         </div>
       </div>
     </div>
 
 
-    <!-- Card 3 -->
+    <!-- Card 4 -->
     <div class="col-md-4 fade-in">
       <div class="card">
-        <img src="images/france.jpg" class="card-img-top" alt="France">
+        <img src="images/china.jpg" class="card-img-top" alt="France">
         <div class="card-body">
           <h5 class="card-title">France</h5>
           <p class="card-text">Romantic Eiffel Tower views and fine wine & cheese trails.</p>
           <div class="d-flex justify-content-between align-items-center">
             <span class="price-tag">$399</span>
-            <a href="#" class="btn btn-outline-primary btn-sm">Explore</a>
+            <a href="#" class="btn gradient-btn btn-outline btn-sm">Explore</a>
           </div>
         </div>
       </div>
     </div>
 
 
-    <!-- Card 3 -->
+    <!-- Card 5 -->
     <div class="col-md-4 fade-in">
       <div class="card">
-        <img src="images/france.jpg" class="card-img-top" alt="France">
+        <img src="images/Dubai.jpg" class="card-img-top" alt="France">
         <div class="card-body">
           <h5 class="card-title">France</h5>
           <p class="card-text">Romantic Eiffel Tower views and fine wine & cheese trails.</p>
           <div class="d-flex justify-content-between align-items-center">
             <span class="price-tag">$399</span>
-            <a href="#" class="btn btn-outline-primary btn-sm">Explore</a>
+            <a href="#" class="btn gradient-btn btn-outline btn-sm">Explore</a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Card 3 -->
+    <!-- Card 6 -->
     <div class="col-md-4 fade-in">
       <div class="card">
-        <img src="images/france.jpg" class="card-img-top" alt="France">
+        <img src="images/England.jpg" class="card-img-top" alt="France">
         <div class="card-body">
           <h5 class="card-title">France</h5>
           <p class="card-text">Romantic Eiffel Tower views and fine wine & cheese trails.</p>
           <div class="d-flex justify-content-between align-items-center">
             <span class="price-tag">$399</span>
-            <a href="#" class="btn btn-outline-primary btn-sm">Explore</a>
+            <a href="#" class="btn gradient-btn btn-outline btn-sm">Explore</a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Card 3 -->
+    <!-- Card 7 -->
     <div class="col-md-4 fade-in">
       <div class="card">
-        <img src="images/france.jpg" class="card-img-top" alt="France">
+        <img src="images/filand.jpg" class="card-img-top" alt="France">
         <div class="card-body">
           <h5 class="card-title">France</h5>
           <p class="card-text">Romantic Eiffel Tower views and fine wine & cheese trails.</p>
           <div class="d-flex justify-content-between align-items-center">
             <span class="price-tag">$399</span>
-            <a href="#" class="btn btn-outline-primary btn-sm">Explore</a>
+            <a href="#" class="btn  gradient-btn btn-outline btn-sm">Explore</a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Card 3 -->
+    <!-- Card 8 -->
     <div class="col-md-4 fade-in">
       <div class="card">
-        <img src="images/france.jpg" class="card-img-top" alt="France">
+        <img src="images/germany.jpg" class="card-img-top" alt="France">
         <div class="card-body">
           <h5 class="card-title">France</h5>
           <p class="card-text">Romantic Eiffel Tower views and fine wine & cheese trails.</p>
           <div class="d-flex justify-content-between align-items-center">
             <span class="price-tag">$399</span>
-            <a href="#" class="btn btn-outline-primary btn-sm">Explore</a>
+            <a href="#" class="btn gradient-btn btn-outline btn-sm">Explore</a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Card 3 -->
+    <!-- Card 9 -->
     <div class="col-md-4 fade-in">
       <div class="card">
-        <img src="images/france.jpg" class="card-img-top" alt="France">
+        <img src="images/india.jpg" class="card-img-top" alt="France">
         <div class="card-body">
           <h5 class="card-title">France</h5>
           <p class="card-text">Romantic Eiffel Tower views and fine wine & cheese trails.</p>
           <div class="d-flex justify-content-between align-items-center">
             <span class="price-tag">$399</span>
-            <a href="#" class="btn btn-outline-primary btn-sm">Explore</a>
+            <a href="#" class="btn gradient-btn btn-outline btn-sm">Explore</a>
           </div>
         </div>
       </div>
@@ -257,14 +295,14 @@
     <!-- Card 1 -->
     <div class="col-md-4" style="animation-delay: 0.2s;">
       <div class="card">
-        <img src="images/yangon.jpg" class="card-img-top" alt="Yangon">
+        <img src="images/Yangon.jpg" class="card-img-top" alt="Yangon">
         <div class="card-body">
           <h5 class="card-title">Yangon</h5>
           <p class="card-text">Historic colonial charm and the majestic Shwedagon Pagoda.</p>
           <div class="d-flex justify-content-between align-items-center">
             <span class="price-tag">Ks 150,000</span>
             <button class="btn gradient-btn btn-sm" data-bs-toggle="modal" data-bs-target="#modalYangon">
-              <i class="fas fa-plane-departure"></i>Explore
+              Explore
             </button>
           </div>
         </div>
@@ -274,14 +312,14 @@
     <!-- Card 2 -->
     <div class="col-md-4" style="animation-delay: 0.4s;">
       <div class="card">
-        <img src="images/seoul.jpg" class="card-img-top" alt="Seoul">
+        <img src="images/souel.jpg" class="card-img-top" alt="Seoul">
         <div class="card-body">
           <h5 class="card-title">Seoul</h5>
           <p class="card-text">A perfect mix of technology, tradition and vibrant nightlife.</p>
           <div class="d-flex justify-content-between align-items-center">
             <span class="price-tag">Ks 320,000</span>
             <button class="btn gradient-btn btn-sm" data-bs-toggle="modal" data-bs-target="#modalSeoul">
-              <i class="fas fa-plane-departure"></i>Explore
+              Explore
             </button>
           </div>
         </div>
@@ -298,7 +336,7 @@
           <div class="d-flex justify-content-between align-items-center">
             <span class="price-tag">Ks 500,000</span>
             <button class="btn gradient-btn btn-sm" data-bs-toggle="modal" data-bs-target="#modalDubai">
-              <i class="fas fa-plane-departure"></i>Explore
+              Explore
             </button>
           </div>
         </div>
@@ -354,181 +392,712 @@
 </div>
 
  <!-- end city -->
+  <!-- *********************************************************************************** -->
 
- <!-- grid-collapisible destination  -->  
-   
-  <div class="container py-5">
-  <h2 class="fw-bold">Search cheap flights by destination</h2>
-  <p class="text-muted">Find Cheap Flights</p>
-  <p>
-    Save money on airfare by searching for cheap flight tickets on KAYAK. KAYAK searches for flight deals on hundreds of airline ticket sites to help you find the cheapest flights.
-  </p>
-
-  <div class="row">
-    <!-- Column 1 -->
-    <div class="col-md-4">
-      <div class="accordion" >
-        <div class="accordion-item">
-          <h2 class="accordion-header" >
-            <button class="accordion-button collapsed"  type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
-              Las Vegas Flights 
-            </button>
-          </h2>
-          <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#accordionCol1">
-            <div class="accordion-body">
-              Cheap flights to Vegas from over 20 cities. Deals start at $89.
+  <!-- Flight Results Section (initially hidden) -->
+    <section class="py-5 d-none" id="flightResults">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <h2 class="fw-bold">Flight Results</h2>
+                    <p class="text-muted">Showing best flights from <span id="fromCityDisplay">New York</span> to <span id="toCityDisplay">London</span></p>
+                </div>
             </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
-              Los Angeles Flights 
-            </button>
-          </h2>
-          <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#accordionCol1">
-            <div class="accordion-body">
-              Direct flights to LAX available nationwide.
+            
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="mb-3">Filters</h5>
+                            
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Price Range</label>
+                                <input type="range" class="form-range" min="100" max="2000" step="50" id="priceRange">
+                                <div class="d-flex justify-content-between">
+                                    <span>$100</span>
+                                    <span id="priceRangeValue">$500</span>
+                                    <span>$2000</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Airlines</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="airline1" checked>
+                                    <label class="form-check-label" for="airline1">American Airlines</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="airline2" checked>
+                                    <label class="form-check-label" for="airline2">Delta Airlines</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="airline3" checked>
+                                    <label class="form-check-label" for="airline3">United Airlines</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="airline4" checked>
+                                    <label class="form-check-label" for="airline4">British Airways</label>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Stops</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="nonstop" checked>
+                                    <label class="form-check-label" for="nonstop">Nonstop</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="oneStop" checked>
+                                    <label class="form-check-label" for="oneStop">1 Stop</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="twoStop">
+                                    <label class="form-check-label" for="twoStop">2+ Stops</label>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Departure Time</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="earlyMorning" checked>
+                                    <label class="form-check-label" for="earlyMorning">Early Morning (12am - 6am)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="morning" checked>
+                                    <label class="form-check-label" for="morning">Morning (6am - 12pm)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="afternoon" checked>
+                                    <label class="form-check-label" for="afternoon">Afternoon (12pm - 6pm)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="evening" checked>
+                                    <label class="form-check-label" for="evening">Evening (6pm - 12am)</label>
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn-outline-primary w-100">Apply Filters</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-9">
+                    <!-- Flight Card 1 -->
+                    <div class="card flight-card mb-3">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-2 text-center">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48cmVjdCB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgZmlsbD0iIzAwNzZmZiIgcng9IjEyNSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZvbnQtc2l6ZT0iMTIwIiBmaWxsPSJ3aGl0ZSI+QUE8L3RleHQ+PC9zdmc+" class="airline-logo" alt="American Airlines">
+                                    <div class="mt-2">American</div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="d-flex align-items-center">
+                                        <div class="text-center">
+                                            <div class="flight-time">8:30 AM</div>
+                                            <div>JFK</div>
+                                        </div>
+                                        <div class="flight-path mx-3"></div>
+                                        <div class="text-center">
+                                            <div class="flight-time">10:15 PM</div>
+                                            <div>LHR</div>
+                                        </div>
+                                    </div>
+                                    <div class="flight-duration text-center mt-2">
+                                        7h 45m • Nonstop
+                                    </div>
+                                    <div class="mt-2">
+                                        <span class="badge bg-success me-2">Best Value</span>
+                                        <span class="badge bg-light text-dark">In-flight Meals</span>
+                                        <span class="badge bg-light text-dark ms-2">Wi-Fi</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 text-end">
+                                    <div class="price-tag mb-2">$549</div>
+                                    <button class="btn btn-primary w-100 mb-2" data-bs-toggle="modal" data-bs-target="#flightDetailsModal">View Details</button>
+                                    <button class="btn btn-outline-primary w-100">Select</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Flight Card 2 -->
+                    <div class="card flight-card mb-3">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-2 text-center">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48cmVjdCB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgZmlsbD0iI2U0MDAyYiIgcng9IjEyNSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZvbnQtc2l6ZT0iMTIwIiBmaWxsPSJ3aGl0ZSI+QkE8L3RleHQ+PC9zdmc+" class="airline-logo" alt="British Airways">
+                                    <div class="mt-2">British Airways</div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="d-flex align-items-center">
+                                        <div class="text-center">
+                                            <div class="flight-time">10:45 AM</div>
+                                            <div>JFK</div>
+                                        </div>
+                                        <div class="flight-path mx-3"></div>
+                                        <div class="text-center">
+                                            <div class="flight-time">11:00 PM</div>
+                                            <div>LHR</div>
+                                        </div>
+                                    </div>
+                                    <div class="flight-duration text-center mt-2">
+                                        7h 15m • Nonstop
+                                    </div>
+                                    <div class="mt-2">
+                                        <span class="badge bg-warning text-dark me-2">Popular</span>
+                                        <span class="badge bg-light text-dark">In-flight Meals</span>
+                                        <span class="badge bg-light text-dark ms-2">Wi-Fi</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 text-end">
+                                    <div class="price-tag mb-2">$599</div>
+                                    <button class="btn btn-primary w-100 mb-2">View Details</button>
+                                    <button class="btn btn-outline-primary w-100">Select</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Flight Card 3 -->
+                    <div class="card flight-card mb-3">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-2 text-center">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48cmVjdCB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgZmlsbD0iIzAwNTJiNCIgcng9IjEyNSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZvbnQtc2l6ZT0iMTIwIiBmaWxsPSJ3aGl0ZSI+VUE8L3RleHQ+PC9zdmc+" class="airline-logo" alt="United Airlines">
+                                    <div class="mt-2">United</div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="d-flex align-items-center">
+                                        <div class="text-center">
+                                            <div class="flight-time">2:15 PM</div>
+                                            <div>JFK</div>
+                                        </div>
+                                        <div class="flight-path mx-3"></div>
+                                        <div class="text-center">
+                                            <div class="flight-time">4:30 AM</div>
+                                            <div>LHR</div>
+                                        </div>
+                                    </div>
+                                    <div class="flight-duration text-center mt-2">
+                                        7h 15m • Nonstop
+                                    </div>
+                                    <div class="mt-2">
+                                        <span class="badge bg-info text-dark me-2">Lowest Price</span>
+                                        <span class="badge bg-light text-dark">In-flight Meals</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 text-end">
+                                    <div class="price-tag mb-2">$499</div>
+                                    <button class="btn btn-primary w-100 mb-2">View Details</button>
+                                    <button class="btn btn-outline-primary w-100">Select</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Flight Card 4 -->
+                    <div class="card flight-card mb-3">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-2 text-center">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48cmVjdCB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgZmlsbD0iI2U0MDAyYiIgcng9IjEyNSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZvbnQtc2l6ZT0iMTIwIiBmaWxsPSJ3aGl0ZSI+VkE8L3RleHQ+PC9zdmc+" class="airline-logo" alt="Virgin Atlantic">
+                                    <div class="mt-2">Virgin Atlantic</div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="d-flex align-items-center">
+                                        <div class="text-center">
+                                            <div class="flight-time">7:30 PM</div>
+                                            <div>JFK</div>
+                                        </div>
+                                        <div class="flight-path mx-3"></div>
+                                        <div class="text-center">
+                                            <div class="flight-time">7:45 AM</div>
+                                            <div>LHR</div>
+                                        </div>
+                                    </div>
+                                    <div class="flight-duration text-center mt-2">
+                                        7h 15m • Nonstop
+                                    </div>
+                                    <div class="mt-2">
+                                        <span class="badge bg-light text-dark">In-flight Meals</span>
+                                        <span class="badge bg-light text-dark ms-2">Wi-Fi</span>
+                                        <span class="badge bg-light text-dark ms-2">Entertainment</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 text-end">
+                                    <div class="price-tag mb-2">$629</div>
+                                    <button class="btn btn-primary w-100 mb-2">View Details</button>
+                                    <button class="btn btn-outline-primary w-100">Select</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
+    </section>
 
-    <!-- Column 2 -->
-    <div class="col-md-4">
-      <div class="accordion" >
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="heading3">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
-              New York Flights 
-            </button>
-          </h2>
-          <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#accordionCol2">
-            <div class="accordion-body">
-              NYC has three major airports to choose from.
+    
+
+    <!-- Special Offers -->
+    <section class="py-5" id="deals">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-12 text-center">
+                    <h2 class="fw-bold">Special Offers & Deals</h2>
+                    <p class="text-light">Limited time offers to make your journey more affordable</p>
+                </div>
             </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="heading4">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
-              Miami Flights 
-            </button>
-          </h2>
-          <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#accordionCol2">
-            <div class="accordion-body">
-              Popular winter destination from northern US cities.
+            
+            <div class="row">
+                <!-- Deal 1 -->
+                <div class="col-md-6 mb-4">
+                    <div class="card bg-primary text-white">
+                        <div class="card-body p-4">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <h3 class="fw-bold">Summer Sale</h3>
+                                    <p class="mb-3">Get up to 30% off on international flights when you book by July 31st.</p>
+                                    <button class="btn btn-outline gradient-btn ">Book Now</button>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <div class="display-1">
+                                        <i class="fas fa-plane"></i>
+                                    </div>
+                                    <div class="fs-2 fw-bold">30% OFF</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Deal 2 -->
+                <div class="col-md-6 mb-4">
+                    <div class="card bg-success text-white">
+                        <div class="card-body p-4">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <h3 class="fw-bold">Bundle & Save</h3>
+                                    <p class="mb-3">Save up to $200 when you book flight + hotel together for your next vacation.</p>
+                                    <button class="btn btn-outline gradient-btn">Book Now</button>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <div class="display-1">
+                                        <i class="fas fa-suitcase"></i>
+                                    </div>
+                                    <div class="fs-2 fw-bold">$200 OFF</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Column 3 -->
-    <div class="col-md-4">
-      <div class="accordion" >
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="heading5">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5">
-              London Flights 
-            </button>
-          </h2>
-          <div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#accordionCol3">
-            <div class="accordion-body">
-              Heathrow, Gatwick, Stansted – compare and save.
+            
+            <div class="row">
+                <!-- Deal 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body p-4">
+                            <div class="text-center mb-3">
+                                <div class="feature-icon mx-auto">
+                                    <i class="fas fa-car"></i>
+                                </div>
+                                <h4 class="fw-bold">Car Rental Deal</h4>
+                            </div>
+                            <p class="text-center mb-3">Get 15% off on car rentals when you book a flight with us.</p>
+                            <button class="btn btn-outline-primary w-100">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Deal 4 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body p-4">
+                            <div class="text-center mb-3">
+                                <div class="feature-icon mx-auto">
+                                    <i class="fas fa-percent"></i>
+                                </div>
+                                <h4 class="fw-bold">Last Minute Deals</h4>
+                            </div>
+                            <p class="text-center mb-3">Huge discounts on flights departing in the next 72 hours.</p>
+                            <button class="btn btn-outline-primary w-100">View Deals</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Deal 5 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body p-4">
+                            <div class="text-center mb-3">
+                                <div class="feature-icon mx-auto">
+                                    <i class="fas fa-gift"></i>
+                                </div>
+                                <h4 class="fw-bold">Loyalty Program</h4>
+                            </div>
+                            <p class="text-center mb-3">Join our loyalty program and earn points on every booking.</p>
+                            <button class="btn btn-outline-primary w-100">Join Now</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
+    </section>
 
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="heading6">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6">
-              Tokyo Flights 
-            </button>
-          </h2>
-          <div id="collapse6" class="accordion-collapse collapse" data-bs-parent="#accordionCol3">
-            <div class="accordion-body">
-              Fly to Narita or Haneda with premium carriers.
+    <!-- Features Section -->
+    <section class="py-5 bg-light " id="features ">
+        <div class="container ">
+            <div class="row mb-5">
+                <div class="col-md-12 text-center ">
+                    <h2 class="fw-bold text-dark">Why Choose SkyJourney</h2>
+                    <p class="text-muted text-dark">We offer the best travel experience with premium services</p>
+                </div>
             </div>
-          </div>
+            
+            <div class="row">
+                <!-- Feature 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-tag"></i>
+                        </div>
+                        <h4 class="mt-4 fw-bold text-dark">Best Price Guarantee</h4>
+                        <p class="text-muted">We guarantee the lowest prices on flights, hotels, and vacation packages.</p>
+                    </div>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h4 class="mt-4 fw-bold text-dark">Premium In-flight Meals</h4>
+                        <p class="text-muted">Choose from a variety of delicious meal options during your flight.</p>
+                    </div>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4 class="mt-4 fw-bold text-dark">24/7 Customer Support</h4>
+                        <p class="text-muted">Our dedicated support team is available around the clock to assist you.</p>
+                    </div>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="col-md-4 mb-4">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4 class="mt-4 fw-bold text-dark">Secure Booking</h4>
+                        <p class="text-muted">Your payment and personal information are always protected with us.</p>
+                    </div>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="col-md-4 mb-4">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h4 class="mt-4 fw-bold text-dark">Car Service</h4>
+                        <p class="text-muted">Book a car rental or airport transfer for a seamless travel experience.</p>
+                    </div>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="col-md-4 mb-4">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4 class="mt-4 fw-bold text-dark">Mobile App</h4>
+                        <p class="text-muted">Manage your bookings, check-in, and get updates on the go with our app.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div> 
- <!-- grid -collisible end -->
-  <div class="container py-5">
-  <h2 class="fw-bold">Search cheap flights by destination</h2>
-  <p class="text-muted">Find Cheap Flights</p>
-  <p class="mb-4">
-    Save money on airfare by searching for cheap flight tickets on KAYAK...
-  </p>
+    </section>
 
-  <div class="row">
-    <div class="col-md-4">
-      <div class="flight-block">
-        <div class="flight-listing">Las Vegas Flights <i class="fas fa-chevron-down arrow-icon"></i></div>
-        <div class="dropdown-content">Fly direct from over 20 cities, including Chicago, LA, and NYC. Deals from $89 round-trip.</div>
-      </div>
-      <div class="flight-block">
-        <div class="flight-listing">Los Angeles Flights <i class="fas fa-chevron-down arrow-icon"></i></div>
-        <div class="dropdown-content">LAX flights from the U.S. and Asia. Nonstop options available.</div>
-      </div>
-      <!-- Add more blocks similarly -->
-    </div>
+    <!-- In-flight Services -->
+    <section class="py-5" id="services">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-12 text-center">
+                    <h2 class="fw-bold">Premium In-flight Services</h2>
+                    
+                </div>
+            </div>
+            
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6">
+                    <h3 class="fw-bold mb-3">Gourmet Dining Experience</h3>
+                    <p class="mb-4">Enjoy restaurant-quality meals at 30,000 feet. Our menu is crafted by renowned chefs using fresh, high-quality ingredients to satisfy your taste buds during your journey.</p>
+                    <div class="row mb-3">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span>Multi-course meals</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span>Special dietary options</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span>Premium beverages</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span>Dessert selection</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#mealSelectionModal">View Menu Options</button>
+                </div>
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm">
+                        <svg class="card-img-top" width="100%" height="300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                            <rect width="100%" height="100%" fill="#f8f9fa"/>
+                            <circle cx="150" cy="150" r="100" fill="#e0e0e0"/>
+                            <rect x="100" y="120" width="100" height="60" rx="5" fill="#ffffff"/>
+                            <rect x="120" y="140" width="60" height="20" rx="5" fill="#0d6efd"/>
+                            <circle cx="250" cy="100" r="30" fill="#ffffff"/>
+                            <circle cx="50" cy="200" r="20" fill="#ffffff"/>
+                            <path d="M120,80 L180,80 L150,50 Z" fill="#ffffff"/>
+                            <text x="50%" y="220" fill="#212529" text-anchor="middle" dominant-baseline="middle" font-size="16">Gourmet In-flight Meal</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row align-items-center">
+                <div class="col-md-6 order-md-2">
+                    <h3 class="fw-bold mb-3">Entertainment & Connectivity</h3>
+                    <p class="mb-4">Stay entertained and connected throughout your flight with our state-of-the-art entertainment system and high-speed Wi-Fi service.</p>
+                    <div class="row mb-3">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span>Latest movies</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span>TV shows</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span>High-speed Wi-Fi</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span>USB charging ports</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary">Learn More</button>
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <div class="card border-0 shadow-sm">
+                        <svg class="card-img-top" width="100%" height="300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                            <rect width="100%" height="100%" fill="#f8f9fa"/>
+                            <rect x="75" y="50" width="150" height="100" rx="5" fill="#0d6efd"/>
+                            <rect x="85" y="60" width="130" height="80" rx="3" fill="#ffffff"/>
+                            <rect x="100" y="170" width="100" height="10" rx="5" fill="#0d6efd"/>
+                            <rect x="120" y="190" width="60" height="10" rx="5" fill="#0d6efd"/>
+                            <circle cx="50" cy="50" r="20" fill="#e0e0e0"/>
+                            <circle cx="250" cy="200" r="30" fill="#e0e0e0"/>
+                            <text x="50%" y="220" fill="#212529" text-anchor="middle" dominant-baseline="middle" font-size="16">In-flight Entertainment</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
 
-    <div class="col-md-4">
-      <div class="flight-block">
-        <div class="flight-listing">New York Flights <i class="fas fa-chevron-down arrow-icon"></i></div>
-        <div class="dropdown-content">NYC offers three airports: JFK, LGA, and EWR. Compare all for best pricing.</div>
-      </div>
-      <!-- More destinations -->
-    </div>
+    <!-- Newsletter -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <h2 class="fw-bold">Subscribe to Our Newsletter</h2>
+                    <p>Get the latest deals, travel tips, and exclusive offers straight to your inbox.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                        <button class="btn btn-light" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
 
-    <div class="col-md-4">
-      <div class="flight-block">
-        <div class="flight-listing">London Flights <i class="fas fa-chevron-down arrow-icon"></i></div>
-        <div class="dropdown-content">London Heathrow is the main hub. Save big by flying into Gatwick or Stansted.</div>
-      </div>
-      <!-- More destinations -->
-    </div>
-  </div>
-</div>
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">SkyJourney</h5>
+                    <p class="text-muted">Your trusted partner for flights, hotels, cars, and more. We make travel planning easy and affordable.</p>
+                    <div class="d-flex">
+                        <a href="#" class="social-icon me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">Company</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-2"><a href="#">About Us</a></li>
+                        <li class="mb-2"><a href="#">Careers</a></li>
+                        <li class="mb-2"><a href="#">Press</a></li>
+                        <li class="mb-2"><a href="#">Blog</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">Support</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-2"><a href="#">Help Center</a></li>
+                        <li class="mb-2"><a href="#">FAQs</a></li>
+                        <li class="mb-2"><a href="#">Cancellation Policy</a></li>
+                        <li class="mb-2"><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="fw-bold mb-3">Contact</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 123 Travel Street, City</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> +1 (555) 123-4567</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@skyjourney.com</li>
+                    </ul>
+                    <div class="mt-3">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgNjAiPjxyZWN0IHdpZHRoPSI2MCIgaGVpZ2h0PSI0MCIgZmlsbD0iIzE1NjVjMCIgcng9IjUiLz48cmVjdCB4PSI3MCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjZmZhMDAwIiByeD0iNSIvPjxyZWN0IHg9IjE0MCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjZWIwMDFiIiByeD0iNSIvPjxyZWN0IHg9IjIxMCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjNjYzM2NjIiByeD0iNSIvPjwvc3ZnPg==" alt="Payment Methods" height="30">
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="small text-muted mb-0">&copy; 2023 SkyJourney. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="small text-muted mb-0">Terms of Service | Privacy Policy | Cookie Policy</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-<script>
-  // Collapse others when one opens
-  document.querySelectorAll('.flight-listing').forEach(listing => {
-    listing.addEventListener('click', () => {
-      const current = listing.parentElement;
-      document.querySelectorAll('.flight-block').forEach(block => {
-        if (block !== current) {
-          block.querySelector('.dropdown-content').style.display = 'none';
-          block.querySelector('.flight-listing').classList.remove('open');
-        }
-      });
-      const content = current.querySelector('.dropdown-content');
-      const isOpen = content.style.display === 'block';
-      content.style.display = isOpen ? 'none' : 'block';
-      listing.classList.toggle('open', !isOpen);
-    });
-  });
-</script>
 
-   
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const carousel = document.getElementById('thumbnailCarousel');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const thumbnailItems = document.querySelectorAll('.thumbnail-item'); // Get all thumbnail items
+
+            // Elements in the upper frame to update
+            const detailImageContainer = document.getElementById('detailImageContainer');
+            const detailImage = detailImageContainer.querySelector('img'); // Get the image element inside the container
+            const detailTitle = document.getElementById('detailTitle');
+            const detailDescription = document.getElementById('detailDescription');
+
+            // Function to update the upper frame with details
+            function updateDetailView(imageSrc, title, description) {
+                // Fade out current image, change src, then fade in
+                detailImage.style.opacity = '0';
+                setTimeout(() => {
+                    detailImage.src = imageSrc;
+                    detailImage.alt = title; // Update alt text for accessibility
+                    detailTitle.textContent = title;
+                    detailDescription.textContent = description;
+                    detailImage.style.opacity = '1';
+                }, 200); // Small delay for fade out effect
+            }
+
+            // Add click event listeners to each thumbnail
+            thumbnailItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const imageSrc = item.dataset.imageSrc;
+                    const title = item.dataset.title;
+                    const description = item.dataset.description;
+                    updateDetailView(imageSrc, title, description);
+                });
+            });
+
+            // Calculate how much to scroll based on item width and gap
+            const style = getComputedStyle(carousel);
+            const gap = parseFloat(style.gap); // Get the gap value (e.g., '20px')
+            let itemWidth = carousel.querySelector('.thumbnail-item') ? carousel.querySelector('.thumbnail-item').offsetWidth : 200; // Get the width of one item, default to 200 if not found
+
+            const scrollAmount = itemWidth + gap; // Scroll one item + its gap
+
+            nextBtn.addEventListener('click', () => {
+                carousel.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+
+            prevBtn.addEventListener('click', () => {
+                carousel.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Optional: Hide/show arrows if carousel is not scrollable (e.g., few items)
+            function toggleArrowsVisibility() {
+                const container = carousel.parentElement;
+                const arrowsDiv = container.querySelector('.thumbnail-arrows');
+                // Check if the scrollWidth is greater than the clientWidth, meaning there's content to scroll
+                if (carousel.scrollWidth > carousel.clientWidth) {
+                    arrowsDiv.classList.remove('hidden');
+                } else {
+                    arrowsDiv.classList.add('hidden');
+                }
+            }
+
+            // Initial check and recheck on resize
+            toggleArrowsVisibility();
+            window.addEventListener('resize', () => {
+                // Recalculate itemWidth on resize as it might change due to media queries
+                itemWidth = carousel.querySelector('.thumbnail-item') ? carousel.querySelector('.thumbnail-item').offsetWidth : 200;
+                toggleArrowsVisibility();
+            });
+
+            // Optionally, load the first item's details on initial page load
+            if (thumbnailItems.length > 0) {
+                const firstItem = thumbnailItems[0];
+                updateDetailView(
+                    firstItem.dataset.imageSrc,
+                    firstItem.dataset.title,
+                    firstItem.dataset.description
+                );
+            }
+        });
+    </script>
+
+    
+
+    
  
-  <!-- Footer -->
-  <footer class="mt-5 bg-light py-4">
-    <div class="container text-center">
-      <p class="mb-1">© 2025 Kayak Clone. All rights reserved.</p>
-      <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a>
-    </div>
-  </footer>
-
-
 
     
   <!-- Scripts -->

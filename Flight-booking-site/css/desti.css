@@ -1,0 +1,253 @@
+ body {
+            background-color: #000; /* Dark background as in the image */
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .carousel-wrapper {
+            width: 100%; /* Ensure it takes full width */
+            background-color: #222; /* Slightly lighter background for the content area */
+            border-radius: 0; /* Remove border-radius for full width, or adjust as desired */
+            overflow: hidden; /* Important for preventing scrollbar issues */
+            box-shadow: none; /* Remove shadow for full width, or adjust */
+        }
+
+        .main-content {
+            padding: 30px;
+            position: relative;
+            background-color: #333; /* Darker header background */
+            text-align: center; /* Ensure text content is centered */
+            display: flex; /* Use flexbox for vertical alignment of content */
+            flex-direction: column; /* Stack items vertically */
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+            min-height: 350px; /* Increased height to give more space for the full-cover image */
+        }
+
+        /* Styles for the dynamically loaded detail image */
+        .detail-image-container {
+            width: 100%;
+            /* Removed fixed height, let the image fill the flexible main-content */
+            position: absolute; /* Position absolutely to act as background */
+            top: 0;
+            left: 0;
+            height: 100%; /* Fill the height of main-content */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #444; /* Placeholder background */
+            overflow: hidden; /* Ensure image doesn't overflow */
+            z-index: 0; /* Place behind text and button */
+        }
+
+        .detail-image-container img {
+            width: 100%; /* Make image take full width of its container */
+            height: 800px; /* Make image take full height of its container */
+            object-fit: cover; /* This is the key change: image covers the container */
+            display: block; /* Remove any extra space below image */
+            border-radius: 0; /* Remove rounding if it's supposed to be full cover */
+            transition: opacity 0.5s ease-in-out; /* Smooth transition for image change */
+        }
+
+        /* Overlay for text readability */
+        .main-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+            z-index: 1; /* Above image, below text */
+        }
+
+        .main-content h1,
+        .main-content p,
+        .main-content .btn-explore {
+            position: relative; /* Bring text and button above the overlay */
+            z-index: 2;
+            color: #fff; /* Ensure text is white */
+        }
+
+        .main-content h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .main-content p {
+            font-size: 1rem;
+            color: #ccc;
+            margin-bottom: 20px;
+            max-width: 80%; /* Limit paragraph width for better readability */
+        }
+
+        .btn-explore {
+            background-color: #6a11cb; /* Purple button */
+            border: none;
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-explore:hover {
+            background-color: #2575fc; /* Blue on hover */
+        }
+
+        /* Removed .carousel-navigation styles as the element is no longer present in main-content */
+
+        /* Thumbnail Carousel Section */
+        .thumbnail-carousel-container {
+            position: relative;
+            padding: 20px 0; /* Vertical padding */
+            background-color: #fff; /* White background for the thumbnails */
+            color: #333; /* Dark text for captions */
+            overflow: hidden; /* Hide horizontal overflow for sliding effect */
+        }
+
+        .thumbnail-carousel {
+            display: flex;
+            gap: 20px; /* Space between thumbnails */
+            padding: 0 50px; /* Padding for left/right arrows */
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+            overflow-x: hidden; /* Hide default scrollbar */
+            overflow-y: hidden;
+            flex-wrap: nowrap; /* Prevent wrapping */
+            transform: translateX(0); /* Initial position */
+            transition: transform 0.5s ease-in-out; /* Smooth slide transition */
+        }
+
+        .thumbnail-item {
+            flex: 0 0 auto; /* Do not grow, do not shrink, fixed size */
+            width: 200px; /* Fixed width for each thumbnail */
+            text-align: center;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: #f8f9fa; /* Light background for items */
+            padding-bottom: 10px; /* Space for caption */
+            cursor: pointer; /* Indicate that it's clickable */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .thumbnail-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .thumbnail-item img {
+            width: 100%;
+            height: 150px; /* Fixed height for consistent image size */
+            object-fit: cover; /* Cover the area, cropping if necessary */
+            display: block;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .thumbnail-item .caption {
+            padding: 10px 5px;
+            font-size: 0.9rem;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .thumbnail-arrows {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+            pointer-events: none; /* Allow clicks to pass through to elements below */
+        }
+
+        .thumbnail-arrows button {
+            background: rgba(0, 0, 0, 0.6); /* Darker arrows */
+            border: none;
+            color: #fff;
+            font-size: 1.2rem;
+            padding: 8px 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            z-index: 10; /* Ensure arrows are above thumbnails */
+            pointer-events: auto; /* Re-enable pointer events for buttons */
+        }
+
+        .thumbnail-arrows button:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Hide arrows if carousel is not overflowing */
+        .thumbnail-arrows.hidden {
+            display: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .carousel-wrapper {
+                margin: 0; /* Remove margin for full width on smaller screens */
+                border-radius: 0; /* Remove rounding on small screens */
+            }
+            .main-content {
+                padding: 20px;
+                min-height: 250px; /* Adjust min-height for smaller screens */
+            }
+            .main-content h1 {
+                font-size: 2rem;
+            }
+            .main-content p {
+                font-size: 0.9rem;
+                max-width: 90%; /* Allow paragraph to take more width on smaller screens */
+            }
+            .thumbnail-carousel {
+                padding: 0 20px; /* Adjust padding for arrows */
+                gap: 15px;
+                justify-content: flex-start; /* Ensure items are aligned to start on smaller screens for proper scrolling */
+            }
+            .thumbnail-item {
+                width: 150px; /* Smaller thumbnails */
+            }
+            .thumbnail-item img {
+                height: 100px;
+            }
+            .thumbnail-arrows {
+                padding: 0 5px;
+            }
+            .thumbnail-arrows button {
+                font-size: 1rem;
+                padding: 6px 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .main-content h1 {
+                font-size: 1.8rem;
+            }
+            .btn-explore {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+            .thumbnail-carousel {
+                padding: 0 10px;
+                justify-content: flex-start; /* Ensure items are aligned to start on smallest screens */
+            }
+            .thumbnail-item {
+                width: 120px; /* Even smaller thumbnails */
+            }
+            .thumbnail-item img {
+                height: 80px;
+            }
+            .thumbnail-item .caption {
+                font-size: 0.8rem;
+            }
+        }
