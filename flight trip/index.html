@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Trip Booking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom CSS for smooth transitions and fixed layout */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure body takes full viewport height */
+            font-family: 'Inter', sans-serif; /* Apply Inter font */
+        }
+
+        .sidebar {
+            width: 16rem; /* Default width for open sidebar (256px) */
+            transition: width 0.3s ease-in-out, margin-left 0.3s ease-in-out, transform 0.3s ease-in-out;
+            flex-shrink: 0; /* Prevent sidebar from shrinking */
+            border-radius: 1rem; /* Rounded corners for the sidebar */
+            margin: 1rem; /* Margin around the sidebar */
+            height: calc(100vh - 2rem); /* Adjust height to fit with margin */
+            display: flex;
+            flex-direction: column;
+            position: relative; /* Needed for z-index to work */
+            z-index: 10; /* Ensure sidebar is above main content on desktop */
+        }
+
+        .sidebar.collapsed {
+            width: 4rem; /* Collapsed width (64px) */
+        }
+
+        .main-content {
+            margin-left: calc(16rem + 1rem); /* Default margin for open sidebar + sidebar margin */
+            transition: margin-left 0.3s ease-in-out;
+            flex-grow: 1; /* Allow main content to grow */
+            padding: 1rem; /* Add padding to main content */
+        }
+
+        .main-content.collapsed {
+            margin-left: calc(4rem + 1rem); /* Margin when sidebar is collapsed + sidebar margin */
+        }
+
+        /* Adjust for smaller screens */
+        @media (max-width: 768px) {
+            .sidebar {
+                position: fixed; /* Fix sidebar on small screens */
+                height: 100%;
+                z-index: 100; /* Ensure it's above other content */
+                transform: translateX(-18rem); /* Hide sidebar off-screen by default on small screens (16rem width + 2rem margin) */
+                margin: 0; /* Remove margin on mobile for full height */
+                border-radius: 0; /* Remove border-radius on mobile */
+            }
+
+            .sidebar.collapsed {
+                transform: translateX(0); /* Show sidebar when toggled on small screens */
+                width: 16rem; /* Keep full width when shown */
+            }
+
+            .main-content {
+                margin-left: 0; /* No margin on small screens, content flows under/over sidebar */
+                padding: 1rem; /* Ensure padding on mobile */
+            }
+
+            .main-content.collapsed {
+                margin-left: 0; /* No margin on small screens */
+            }
+        }
+
+        /* Custom switch for Dark Mode */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 38px;
+            height: 22px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 22px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #6B46C1; /* Purple color */
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #6B46C1;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(16px);
+            -ms-transform: translateX(16px);
+            transform: translateX(16px);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <header class="bg-white text-gray-800 p-4 shadow-md flex items-center justify-between z-20">
+        <div class="flex items-center">
+            <button id="globalSidebarToggle" class="p-1 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 mr-4 md:hidden">
+                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            <h1 class="text-2xl font-bold text-indigo-700">FlightBooker</h1>
+        </div>
+        <nav>
+            <ul class="flex space-x-4">
+                <li><a href="#" class="text-gray-600 hover:text-indigo-700 transition duration-200">Login</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-indigo-700 transition duration-200">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="flex flex-1 overflow-hidden">
+        <aside id="sidebar" class="sidebar bg-white text-gray-800 shadow-xl">
+            <div class="p-4 flex items-center justify-between border-b border-gray-200">
+                <div class="flex items-center">
+                    <div class="bg-indigo-600 rounded-lg p-2 mr-2">
+                        <span class="text-white font-bold">CL</span>
+                    </div>
+                    <span class="font-semibold text-lg sidebar-text">Codinglab</span>
+                </div>
+                <button id="sidebarCollapseButton" class="p-1 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 hidden md:block">
+                    <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="p-4 border-b border-gray-200 sidebar-search">
+                <div class="relative">
+                    <input type="text" placeholder="Search..." class="w-full pl-10 pr-4 py-2 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-300 text-gray-700">
+                    <svg class="w-5 h-5 text-gray-500 absolute left-3 top-1/2 transform -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </div>
+            </div>
+
+            <nav class="flex-1 overflow-y-auto p-2">
+                <ul class="space-y-1">
+                    <li>
+                        <a href="#search-flights" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition duration-200 sidebar-link text-gray-700 active-link">
+                            <svg class="w-6 h-6 mr-3 sidebar-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2 2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                            <span class="sidebar-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#my-bookings" class="flex items-center p-3 rounded-lg bg-indigo-600 text-white transition duration-200 sidebar-link">
+                            <svg class="w-6 h-6 mr-3 sidebar-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                            <span class="sidebar-text">Revenue</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#flight-status" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition duration-200 sidebar-link text-gray-700">
+                            <svg class="w-6 h-6 mr-3 sidebar-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                            <span class="sidebar-text">Notifications</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#profile" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition duration-200 sidebar-link text-gray-700">
+                            <svg class="w-6 h-6 mr-3 sidebar-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
+                            <span class="sidebar-text">Analytics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition duration-200 sidebar-link text-gray-700">
+                            <svg class="w-6 h-6 mr-3 sidebar-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                            <span class="sidebar-text">Likes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition duration-200 sidebar-link text-gray-700">
+                            <svg class="w-6 h-6 mr-3 sidebar-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                            <span class="sidebar-text">Wallets</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="mt-auto p-2 border-t border-gray-200">
+                <ul class="space-y-1">
+                    <li>
+                        <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition duration-200 sidebar-link text-gray-700">
+                            <svg class="w-6 h-6 mr-3 sidebar-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                            <span class="sidebar-text">Logout</span>
+                        </a>
+                    </li>
+                    <li class="flex items-center justify-between p-3 rounded-lg sidebar-dark-mode">
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 mr-3 text-gray-700 sidebar-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                            <span class="sidebar-text text-gray-700">Dark Mode</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="darkModeToggle">
+                            <span class="slider"></span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <main id="mainContent" class="main-content flex-1 p-6 overflow-y-auto">
+            <section id="search-flights" class="bg-white p-8 rounded-xl shadow-lg mb-8">
+                <h2 class="text-3xl font-bold mb-8 text-gray-800 text-center">Dashboard Overview</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-700">Total Revenue</h3>
+                        <p class="text-indigo-600 text-3xl font-bold">$12,345</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-700">New Bookings</h3>
+                        <p class="text-green-600 text-3xl font-bold">87</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-700">Active Users</h3>
+                        <p class="text-blue-600 text-3xl font-bold">459</p>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold mb-6 text-gray-800">Flight Search</h3>
+                <form id="flightSearchForm" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div>
+                        <label for="origin" class="block text-gray-700 text-sm font-semibold mb-2">Origin:</label>
+                        <input type="text" id="origin" name="origin" class="shadow-sm border border-gray-300 rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 transition duration-200" placeholder="e.g., New York" required>
+                    </div>
+                    <div>
+                        <label for="destination" class="block text-gray-700 text-sm font-semibold mb-2">Destination:</label>
+                        <input type="text" id="destination" name="destination" class="shadow-sm border border-gray-300 rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 transition duration-200" placeholder="e.g., London" required>
+                    </div>
+                    <div>
+                        <label for="departureDate" class="block text-gray-700 text-sm font-semibold mb-2">Departure Date:</label>
+                        <input type="date" id="departureDate" name="departureDate" class="shadow-sm border border-gray-300 rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 transition duration-200" required>
+                    </div>
+                    <div>
+                        <label for="returnDate" class="block text-gray-700 text-sm font-semibold mb-2">Return Date (Optional):</label>
+                        <input type="date" id="returnDate" name="returnDate" class="shadow-sm border border-gray-300 rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 transition duration-200">
+                    </div>
+                    <div>
+                        <label for="passengers" class="block text-gray-700 text-sm font-semibold mb-2">Passengers:</label>
+                        <input type="number" id="passengers" name="passengers" min="1" value="1" class="shadow-sm border border-gray-300 rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 transition duration-200" required>
+                    </div>
+                    <div>
+                        <label for="travelClass" class="block text-gray-700 text-sm font-semibold mb-2">Class:</label>
+                        <select id="travelClass" name="travelClass" class="shadow-sm border border-gray-300 rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 transition duration-200">
+                            <option value="Economy">Economy</option>
+                            <option value="Business">Business</option>
+                            <option value="First">First Class</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-3 lg:col-span-3 flex justify-center mt-4">
+                        <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:scale-105">
+                            Search Flights
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="flight-results" class="bg-white p-8 rounded-xl shadow-lg mb-8 hidden">
+                <h3 class="text-2xl font-bold mb-6 text-gray-800">Available Flights</h3>
+                <div id="loadingIndicator" class="text-center py-8 hidden">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-4 border-indigo-500 mx-auto"></div>
+                    <p class="text-gray-600 mt-4 text-lg">Searching for the best flights...</p>
+                </div>
+                <div id="resultsTableContainer" class="overflow-x-auto">
+                    <table class="min-w-full bg-white border border-gray-200 rounded-lg overflow-hidden">
+                        <thead>
+                            <tr class="bg-indigo-50 text-left text-gray-700 uppercase text-sm leading-normal">
+                                <th class="py-3 px-6 border-b border-gray-200">Flight No.</th>
+                                <th class="py-3 px-6 border-b border-gray-200">Airline</th>
+                                <th class="py-3 px-6 border-b border-gray-200">Departure</th>
+                                <th class="py-3 px-6 border-b border-gray-200">Arrival</th>
+                                <th class="py-3 px-6 border-b border-gray-200">Duration</th>
+                                <th class="py-3 px-6 border-b border-gray-200">Price</th>
+                                <th class="py-3 px-6 border-b border-gray-200">Status</th>
+                                <th class="py-3 px-6 border-b border-gray-200">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="flightResultsBody" class="text-gray-700 text-sm font-light divide-y divide-gray-100">
+                            </tbody>
+                    </table>
+                </div>
+                <p id="noResultsMessage" class="text-center text-gray-600 py-8 hidden text-lg">No flights found for your criteria. Please try different dates or destinations.</p>
+            </section>
+
+            <section id="my-bookings" class="bg-white p-8 rounded-xl shadow-lg mb-8 hidden">
+                <h3 class="text-2xl font-bold mb-6 text-gray-800">My Bookings</h3>
+                <div id="bookingsList" class="divide-y divide-gray-200">
+                    <p class="text-gray-600 text-lg">You have no active bookings yet. Start by searching for a flight!</p>
+                    </div>
+            </section>
+
+            <section id="flight-status" class="bg-white p-8 rounded-xl shadow-lg mb-8 hidden">
+                <h3 class="text-2xl font-bold mb-6 text-gray-800">Flight Status</h3>
+                <p class="text-gray-600 mb-4 text-lg">Enter a flight number to check its real-time status:</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-4">
+                    <input type="text" id="flightStatusInput" placeholder="e.g., AA123" class="shadow-sm border border-gray-300 rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 flex-grow transition duration-200">
+                    <button id="checkStatusBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-300 ease-in-out">Check Status</button>
+                </div>
+                <div id="flightStatusResult" class="mt-8 p-6 bg-indigo-50 rounded-lg border border-indigo-200 hidden">
+                    <p class="text-gray-800 text-lg">Status for <span class="font-bold" id="statusFlightNum"></span>: <span id="statusText" class="font-extrabold text-xl"></span></p>
+                    <p class="text-gray-700 text-base mt-2" id="statusDetails"></p>
+                </div>
+                <p id="statusNoResult" class="text-center text-red-600 py-8 hidden text-lg">Flight not found or invalid flight number. Please double-check.</p>
+            </section>
+
+            <section id="profile" class="bg-white p-8 rounded-xl shadow-lg mb-8 hidden">
+                <h3 class="text-2xl font-bold mb-6 text-gray-800">Your Profile</h3>
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-gray-700 text-sm font-semibold mb-2">Full Name:</label>
+                        <p class="text-gray-800 text-lg">John Doe</p>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-semibold mb-2">Email Address:</label>
+                        <p class="text-gray-800 text-lg">john.doe@example.com</p>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-semibold mb-2">Membership Tier:</label>
+                        <p class="text-indigo-600 text-lg font-semibold">Gold Member</p>
+                    </div>
+                    <div>
+                        <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition duration-300 ease-in-out">Edit Profile</button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer class="bg-white text-gray-600 p-6 text-center shadow-inner mt-auto border-t border-gray-200">
+        <p class="text-lg mb-2">&copy; 2025 FlightBooker. All rights reserved.</p>
+        <div class="flex justify-center space-x-6 text-sm">
+            <a href="#" class="hover:text-indigo-700 transition duration-200">Privacy Policy</a>
+            <a href="#" class="hover:text-indigo-700 transition duration-200">Terms of Service</a>
+            <a href="#" class="hover:text-indigo-700 transition duration-200">Support</a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const globalSidebarToggle = document.getElementById('globalSidebarToggle'); // Global toggle (for mobile)
+            const sidebarCollapseButton = document.getElementById('sidebarCollapseButton'); // Desktop-only collapse button
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('mainContent');
+            const sidebarTexts = document.querySelectorAll('.sidebar-text');
+            const sidebarIcons = document.querySelectorAll('.sidebar-icon');
+            const sidebarLinks = document.querySelectorAll('.sidebar-link');
+            const sections = document.querySelectorAll('main section');
+            const navLinks = document.querySelectorAll('#sidebar a');
+            const sidebarSearch = document.querySelector('.sidebar-search');
+            const sidebarDarkMode = document.querySelector('.sidebar-dark-mode');
+
+            let isSidebarCollapsed = false; // This will be set correctly by initializeLayout
+
+            // Function to handle desktop sidebar collapse/expand
+            function toggleDesktopSidebar() {
+                isSidebarCollapsed = !isSidebarCollapsed;
+
+                if (isSidebarCollapsed) {
+                    sidebar.classList.add('collapsed');
+                    mainContent.classList.add('collapsed');
+                    sidebarTexts.forEach(span => span.classList.add('hidden'));
+                    sidebarIcons.forEach(svg => svg.classList.remove('mr-3'));
+                    sidebarLinks.forEach(link => link.classList.add('justify-center'));
+                    sidebarSearch.classList.add('hidden');
+                    sidebarDarkMode.classList.add('hidden');
+                    sidebarCollapseButton.querySelector('svg').innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>'; // Right arrow
+                } else {
+                    sidebar.classList.remove('collapsed');
+                    mainContent.classList.remove('collapsed');
+                    sidebarTexts.forEach(span => span.classList.remove('hidden'));
+                    sidebarIcons.forEach(svg => svg.classList.add('mr-3'));
+                    sidebarLinks.forEach(link => link.classList.remove('justify-center'));
+                    sidebarSearch.classList.remove('hidden');
+                    sidebarDarkMode.classList.remove('hidden');
+                    sidebarCollapseButton.querySelector('svg').innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>'; // Left arrow
+                }
+            }
+
+            // Function to handle mobile sidebar show/hide
+            function toggleMobileSidebar() {
+                // On mobile, isSidebarCollapsed means it's currently hidden (true) or visible (false)
+                if (isSidebarCollapsed) { // If currently hidden, show it
+                    sidebar.style.transform = 'translateX(0)';
+                    isSidebarCollapsed = false; // Now it's visible
+                    // Ensure full content is visible on mobile when expanded
+                    sidebarTexts.forEach(span => span.classList.remove('hidden'));
+                    sidebarIcons.forEach(svg => svg.classList.add('mr-3')); // Icons always have margin when sidebar is visible on mobile
+                    sidebarLinks.forEach(link => link.classList.remove('justify-center'));
+                    sidebarSearch.classList.remove('hidden');
+                    sidebarDarkMode.classList.remove('hidden');
+                } else { // If currently visible, hide it
+                    sidebar.style.transform = 'translateX(-18rem)';
+                    isSidebarCollapsed = true; // Now it's hidden
+                    // Hide content when sidebar is hidden
+                    sidebarTexts.forEach(span => span.classList.add('hidden'));
+                    sidebarIcons.forEach(svg => svg.classList.remove('mr-3'));
+                    sidebarLinks.forEach(link => link.classList.add('justify-center'));
+                    sidebarSearch.classList.add('hidden');
+                    sidebarDarkMode.classList.add('hidden');
+                }
+            }
+
+            // Function to show a specific section and hide others
+            function showSection(sectionId) {
+                sections.forEach(section => {
+                    if (section.id === sectionId) {
+                        section.classList.remove('hidden');
+                    } else {
+                        section.classList.add('hidden');
+                    }
+                });
+
+                // If on mobile and sidebar is open, close it after section selection
+                if (window.innerWidth <= 768 && !isSidebarCollapsed) {
+                    toggleMobileSidebar();
+                }
+            }
+
+            // Event listeners
+            globalSidebarToggle.addEventListener('click', toggleMobileSidebar); // Mobile toggle
+            sidebarCollapseButton.addEventListener('click', toggleDesktopSidebar); // Desktop collapse
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault(); // Prevent default anchor behavior
+                    const sectionId = this.getAttribute('href').substring(1); // Get section ID from href
+                    showSection(sectionId);
+
+                    // Update active link styling
+                    navLinks.forEach(navLink => navLink.classList.remove('bg-indigo-600', 'text-white'));
+                    this.classList.add('bg-indigo-600', 'text-white');
+                    this.classList.remove('hover:bg-gray-100', 'text-gray-700'); // Remove default hover/text
+                });
+            });
+
+            // Initial layout setup and resize handler
+            function initializeLayout() {
+                if (window.innerWidth <= 768) {
+                    // Mobile view: Sidebar starts hidden
+                    isSidebarCollapsed = true; // Represents hidden state on mobile
+                    sidebar.classList.remove('collapsed'); // Ensure it's full width when shown
+                    sidebar.style.transform = 'translateX(-18rem)'; // Hide it off-screen
+                    mainContent.classList.remove('collapsed'); // Main content takes full width
+                    globalSidebarToggle.classList.remove('hidden'); // Show hamburger
+                    sidebarCollapseButton.classList.add('hidden'); // Hide desktop collapse button
+
+                    // Hide sidebar content when hidden
+                    sidebarTexts.forEach(span => span.classList.add('hidden'));
+                    sidebarIcons.forEach(svg => svg.classList.remove('mr-3'));
+                    sidebarLinks.forEach(link => link.classList.add('justify-center'));
+                    sidebarSearch.classList.add('hidden');
+                    sidebarDarkMode.classList.add('hidden');
+
+                } else {
+                    // Desktop view: Sidebar starts collapsed (only icons)
+                    isSidebarCollapsed = true; // Represents collapsed state on desktop
+                    sidebar.classList.add('collapsed'); // Apply collapsed width
+                    mainContent.classList.add('collapsed'); // Adjust main content margin
+                    sidebar.style.transform = 'translateX(0)'; // Ensure it's visible
+                    globalSidebarToggle.classList.add('hidden'); // Hide hamburger
+                    sidebarCollapseButton.classList.remove('hidden'); // Show desktop collapse button
+                    sidebarCollapseButton.querySelector('svg').innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>'; // Right arrow
+
+                    // Hide sidebar content when collapsed
+                    sidebarTexts.forEach(span => span.classList.add('hidden'));
+                    sidebarIcons.forEach(svg => svg.classList.remove('mr-3'));
+                    sidebarLinks.forEach(link => link.classList.add('justify-center'));
+                    sidebarSearch.classList.add('hidden');
+                    sidebarDarkMode.classList.add('hidden');
+                }
+                showSection('search-flights'); // Show search flights section by default
+                // Set initial active link
+                document.querySelector('a[href="#search-flights"]').classList.add('bg-indigo-600', 'text-white');
+                document.querySelector('a[href="#search-flights"]').classList.remove('hover:bg-gray-100', 'text-gray-700');
+            }
+
+            initializeLayout();
+            window.addEventListener('resize', initializeLayout);
+
+            // --- Dark Mode Toggle Logic ---
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            darkModeToggle.addEventListener('change', function() {
+                // This is a simplified dark mode toggle.
+                // For a full dark mode, you would dynamically change more classes or use CSS variables.
+                if (this.checked) {
+                    document.body.classList.add('bg-gray-900', 'text-white');
+                    document.body.classList.remove('bg-gray-100', 'text-gray-800');
+                    // Add more classes for other elements if needed
+                } else {
+                    document.body.classList.remove('bg-gray-900', 'text-white');
+                    document.body.classList.add('bg-gray-100', 'text-gray-800');
+                    // Remove more classes for other elements if needed
+                }
+            });
+
+            // --- Flight Search Logic ---
+            const flightSearchForm = document.getElementById('flightSearchForm');
+            const flightResultsSection = document.getElementById('flight-results');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const flightResultsBody = document.getElementById('flightResultsBody');
+            const noResultsMessage = document.getElementById('noResultsMessage');
+
+            flightSearchForm.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                // Show loading indicator and results section, hide no results message
+                flightResultsSection.classList.remove('hidden');
+                loadingIndicator.classList.remove('hidden');
+                flightResultsBody.innerHTML = ''; // Clear previous results
+                noResultsMessage.classList.add('hidden');
+
+                const origin = document.getElementById('origin').value;
+                const destination = document.getElementById('destination').value;
+                const departureDate = document.getElementById('departureDate').value;
+                const returnDate = document.getElementById('returnDate').value;
+                const passengers = document.getElementById('passengers').value;
+                const travelClass = document.getElementById('travelClass').value;
+
+                // Construct prompt for LLM to generate mock flight data
+                const prompt = `Generate a JSON array of 3-5 mock flight options from ${origin} to ${destination} departing on ${departureDate} for ${passengers} passengers in ${travelClass} class. If a return date (${returnDate}) is provided, include return flights. Each flight object should have: flightNumber (e.g., "AA123"), airline (e.g., "American Airlines"), departureTime (e.g., "10:00 AM"), arrivalTime (e.g., "02:30 PM"), duration (e.g., "4h 30m"), price (e.g., 250.00), status (e.g., "On Time", "Delayed", "Cancelled"). Ensure prices are realistic for a flight.`;
+
+                let chatHistory = [];
+                chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+
+                const payload = {
+                    contents: chatHistory,
+                    generationConfig: {
+                        responseMimeType: "application/json",
+                        responseSchema: {
+                            type: "ARRAY",
+                            items: {
+                                type: "OBJECT",
+                                properties: {
+                                    "flightNumber": { "type": "STRING" },
+                                    "airline": { "type": "STRING" },
+                                    "departureTime": { "type": "STRING" },
+                                    "arrivalTime": { "type": "STRING" },
+                                    "duration": { "type": "STRING" },
+                                    "price": { "type": "NUMBER" },
+                                    "status": { "type": "STRING" }
+                                },
+                                "propertyOrdering": ["flightNumber", "airline", "departureTime", "arrivalTime", "duration", "price", "status"]
+                            }
+                        }
+                    }
+                };
+
+                const apiKey = ""; // Leave as empty string for Canvas to provide
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const result = await response.json();
+
+                    loadingIndicator.classList.add('hidden'); // Hide loading indicator
+
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const jsonString = result.candidates[0].content.parts[0].text;
+                        const flights = JSON.parse(jsonString);
+
+                        if (flights.length > 0) {
+                            flights.forEach((flight, index) => {
+                                const row = document.createElement('tr');
+                                // Add a subtle background for odd rows to create a zebra stripe effect
+                                if (index % 2 !== 0) {
+                                    row.classList.add('bg-gray-50');
+                                }
+                                row.classList.add('border-b', 'border-gray-200', 'hover:bg-indigo-50', 'transition', 'duration-150');
+                                row.innerHTML = `
+                                    <td class="py-3 px-6 whitespace-nowrap">${flight.flightNumber}</td>
+                                    <td class="py-3 px-6">${flight.airline}</td>
+                                    <td class="py-3 px-6">${flight.departureTime}</td>
+                                    <td class="py-3 px-6">${flight.arrivalTime}</td>
+                                    <td class="py-3 px-6">${flight.duration}</td>
+                                    <td class="py-3 px-6 font-semibold text-indigo-700">$${flight.price.toFixed(2)}</td>
+                                    <td class="py-3 px-6">
+                                        <span class="py-1 px-3 rounded-full text-xs font-medium
+                                            ${flight.status === 'On Time' ? 'bg-green-200 text-green-800' :
+                                              flight.status === 'Delayed' ? 'bg-yellow-200 text-yellow-800' :
+                                              'bg-red-200 text-red-800'}">
+                                            ${flight.status}
+                                        </span>
+                                    </td>
+                                    <td class="py-3 px-6">
+                                        <button class="bg-indigo-600 hover:bg-indigo-700 text-white py-1 px-4 rounded-full text-sm shadow-md hover:shadow-lg transition duration-200 ease-in-out transform hover:scale-105">Book Now</button>
+                                    </td>
+                                `;
+                                flightResultsBody.appendChild(row);
+                            });
+                        } else {
+                            noResultsMessage.classList.remove('hidden');
+                        }
+                    } else {
+                        noResultsMessage.classList.remove('hidden');
+                    }
+                } catch (error) {
+                    console.error('Error fetching flight data:', error);
+                    loadingIndicator.classList.add('hidden');
+                    noResultsMessage.classList.remove('hidden');
+                    noResultsMessage.textContent = 'Error fetching flights. Please try again.';
+                }
+            });
+
+            // --- Flight Status Logic (Mock) ---
+            const checkStatusBtn = document.getElementById('checkStatusBtn');
+            const flightStatusInput = document.getElementById('flightStatusInput');
+            const flightStatusResult = document.getElementById('flightStatusResult');
+            const statusFlightNum = document.getElementById('statusFlightNum');
+            const statusText = document.getElementById('statusText');
+            const statusDetails = document.getElementById('statusDetails');
+            const statusNoResult = document.getElementById('statusNoResult');
+
+            checkStatusBtn.addEventListener('click', function() {
+                const flightNumber = flightStatusInput.value.trim().toUpperCase();
+                flightStatusResult.classList.add('hidden');
+                statusNoResult.classList.add('hidden');
+
+                if (flightNumber) {
+                    // Simulate API call for flight status
+                    setTimeout(() => {
+                        let status = '';
+                        let details = '';
+                        if (flightNumber.startsWith('AA')) {
+                            status = 'On Time';
+                            details = 'Expected arrival at 02:30 PM at Gate B12.';
+                        } else if (flightNumber.startsWith('DL')) {
+                            status = 'Delayed';
+                            details = 'New departure time: 03:00 PM. Due to adverse weather conditions.';
+                        } else if (flightNumber.startsWith('UA')) {
+                            status = 'Cancelled';
+                            details = 'Flight cancelled. Please contact airline customer service for rebooking options.';
+                        } else {
+                            statusNoResult.classList.remove('hidden');
+                            return;
+                        }
+
+                        statusFlightNum.textContent = flightNumber;
+                        statusText.textContent = status;
+                        statusText.className = 'font-extrabold text-xl'; // Reset classes
+                        if (status === 'On Time') {
+                            statusText.classList.add('text-green-600');
+                        } else if (status === 'Delayed') {
+                            statusText.classList.add('text-yellow-600');
+                        } else {
+                            statusText.classList.add('text-red-600');
+                        }
+                        statusDetails.textContent = details;
+                        flightStatusResult.classList.remove('hidden');
+                    }, 1000); // Simulate network delay
+                } else {
+                    statusNoResult.classList.remove('hidden');
+                    statusNoResult.textContent = 'Please enter a flight number to check its status.';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
